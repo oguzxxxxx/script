@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 4.10 --
+-- SCRIPT VER 4.20 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -1972,6 +1972,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	repeatkill = 1
 	higher1 = 1.5
 	waitwafel = 1.5
+wait(30)
 	cframe22 = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375) -- 43
 	teleportkill(cframe22)
 	waitformoment()
