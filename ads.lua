@@ -10,8 +10,11 @@
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
 local newspeed = 3000
-local UrlSpecial = "https://discord.com/api/webhooks/1245703142843092992/TCRsbBgC9tI992DnhaUXXaMSBuJpnrmXWPSWL4tFCOFgeCFTK68QfjvEb9Tnar_M4LGl" 
-
+local UrlSpecial = "https://discord.com/api/webhooks/1245703142843092992/TCRsbBgC9tI992DnhaUXXaMSBuJpnrmXWPSWL4tFCOFgeCFTK68QfjvEb9Tnar_M4LGl"
+local bomuvalue = Instance.new("NumberValue")
+bomuvalue.Name = "BomuValue"
+bomuvalue.Value = 0
+bomuvalue.Parent = workspace
 
 
 if autoexec == 1 then 
@@ -294,8 +297,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	end
 	local function Kill(table1,table2,method,cframe1)
 		if method == "Magu" then
-			
-			
+
+
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -332,7 +335,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				wait(0.25)
 				geppo1()
 				local cframe = cframe22
-				createbox(cframe,35)
+				createbox(cframe,30 * higher1)
 				wait(0.45)
 				local args = {
 					[1] = true,
@@ -342,26 +345,26 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				geppo1()
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 				geppo1()
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-			humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
 				geppo1()
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-	humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				geppo1()
 			elseif magucd > 0 then
 
@@ -393,26 +396,26 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				geppo1()
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 				geppo1()
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-			humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
 				geppo1()
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-	humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				geppo1()
 			end
 		elseif method == "Clicks" then 
@@ -426,7 +429,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				local cframe = npchumrt.CFrame
-				createbox(cframe,30)
+				createbox(cframe,30 * higher1)
 				local function equip()
 					local kkblade = character:FindFirstChild("Kraken Blade (Red)")
 					if kkblade then 
@@ -970,18 +973,18 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 
 				totalmagu += 1
 				wait(0.25)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 25,cframe22.Z)
-				geppo1()
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				geppo()
 				local cframe = cframe22
 				maguridding()
-				createbox(cframe,25)
+				createbox(cframe,30 * higher1)
 				wait(0.5)
 				local args = {
 					[1] = true,
 					[2] = weaponname,
 					[3] = true
 				}
-				geppo1()
+				geppo()
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 
 			elseif magucd1 > 0 then 
@@ -1058,24 +1061,24 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 								bosstype = 1
 							end
 							if normalmode == 1 then
-							if waitonce12 == 0 then 
-								waitonce12 = 1
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
-								wait(0.5)
-								humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 35,cframe22.Z)
+								if waitonce12 == 0 then 
+									waitonce12 = 1
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									wait(0.5)
+									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 								end
 							end
 							if bosstype == 1 and normalmode == 0 then
@@ -1112,7 +1115,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							elseif bosstype == 1 and normalmode == 1 then
 								Kill(table1,table2,"Clicks",cframe1)
 								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-								createbox(cframe2,45)
+								createbox(cframe2,30 * higher1)
 
 								local args = {
 									[1] = true,
@@ -1264,7 +1267,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
 				geppo()
 				wait(0.25 * waitformoment32)
-                humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
+				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
 				geppo()
 				wait(0.25 * waitformoment32) 
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
@@ -1371,7 +1374,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		waitonce12 = 0
 		magucd1 = 0
 		maguridding()
-		
+
 		print("Done")
 	end
 	local function teleportE(cframe)
@@ -1771,7 +1774,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 
 			game:GetService("ReplicatedStorage").Events.learnSkill:FireServer(unpack(args))
 			wait(2)
-			
+
 			wait(0.05)
 			local fun1 = "FightingStyleMastery"
 			local fun2 = nil
@@ -1787,23 +1790,27 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local fun2 = nil
 			local fun3 = 600
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		
 		end
 		statsUp()
+	else
+		bomuvalue = 1
 	end
 	workspace.Gravity= 0
 	magnitudenumber = 120
 	waitformoment32 = 3
 	higher1 = 0.6
+	waitwafel = 0.6
 	wait(2)
 	if normalmode == 1 then
-	stackleg()
-	stackleg()
-	stackleg()
-	stackleg()
-	stackleg()
-	stackleg()
-	stackleg()
-	stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
 	end
 	cframe22 = CFrame.new(2943.087890625, 2129.49365234375, -13818.97265625) -- 1.1
 	teleportE(cframe22)
@@ -1883,21 +1890,22 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 = CFrame.new(5593.65673828125, 2499.830078125, -20974.90234375) -- 22
 	teleportkill(cframe22)
 	waitformoment()
-	higher1 = -0.6
+	higher1 = 2.5
 	waitformoment32 = 0.5
-	waitwafel = -1
+	waitwafel = 2.5
 	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
 	teleportkill(cframe22)
 	waitformoment()
 	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
 	teleportkill(cframe22)
 	waitformoment()
-	waitwafel = 1
+
 	cframe22 = CFrame.new(5668.52197265625, 2489.330322265625, -20261.974609375) -- 24
 	teleport(cframe22)
 	waitformoment32 = 1.25
 	higher1 = 0.6
 	tweeningyet = 1
+	waitwafel = 0.6
 	cframe22 = CFrame.new(10022.1044921875, 1612.52490234375, -19234.732421875) -- 25
 	teleportkill(cframe22)
 	waitformoment()
@@ -1926,14 +1934,16 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportkill(cframe22)
 	waitformoment()
 	waitformoment32 = 1.25
-	higher1 = 2
+	higher1 = 2.5
 	tweeningyet = 0
+	waitwafel = 2.5
 	cframe22 = CFrame.new(9952.3251953125, 1644.553466796875, -21947.376953125) -- 34
 	teleportkill(cframe22)
 	waitformoment()
 	waitformoment32 = 1.25
 	higher1 = 0.6
 	tweeningyet = 1
+	waitwafel = 0.6
 	cframe22 = CFrame.new(9974.77734375, 1657.553466796875, -22141.06640625) -- 35
 	teleport(cframe22)
 	cframe22 = CFrame.new(9400.0712890625, 572.8726806640625, -27929.95703125) -- 36
@@ -1961,6 +1971,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportE(cframe22)
 	wait(8)
 	repeatkill = 1
+	higher1 = 1.5
+	waitwafel = 1.5
 	cframe22 = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375) -- 43
 	teleportkill(cframe22)
 	waitformoment()
