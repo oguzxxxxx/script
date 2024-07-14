@@ -693,6 +693,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				geppo()
+				local cframe = npchumrt.CFrame
+				createbox(cframe,35 * higher1)
 				local function equip()
 					local melee = character:FindFirstChild(weaponname)
 					if melee then 
@@ -1803,9 +1805,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitwafel = 0.6
 	wait(2)
 	if normalmode == 1 then
-		stackleg()
-		stackleg()
-		stackleg()
 		stackleg()
 		stackleg()
 		stackleg()
