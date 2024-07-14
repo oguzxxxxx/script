@@ -1975,7 +1975,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375) -- 43
 	teleportkill(cframe22)
 	waitformoment()
-	wait(15)
 	local function setvariables(webhook)
 		local diffuculty = nil
 		if normalmode == 1 then 
