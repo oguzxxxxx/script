@@ -1966,13 +1966,13 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 = CFrame.new(9634.5390625, 512.7200317382812, -28434.779296875) -- 42
 	teleportkill(cframe22)
 	waitformoment()
+	wait(30)
 	cframe22 = CFrame.new(9640.421875, 596.3516235351562, -27910.451171875) -- 42.1
 	teleportE(cframe22)
 	wait(8)
 	repeatkill = 1
 	higher1 = 1.5
 	waitwafel = 1.5
-wait(30)
 	cframe22 = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375) -- 43
 	teleportkill(cframe22)
 	waitformoment()
