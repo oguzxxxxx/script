@@ -170,8 +170,7 @@ local function maguridding()
 		else 
 			print("Not finded remote")
 		end 					
-	end		
-	geppo1()
+	end
 end
 
 local function stackleg()
@@ -218,7 +217,7 @@ elseif game.PlaceId == 7465136166 then -- SECOND SEA
 		tween:Play()
 		local function tweens()
 			if teleportedyet == 0 then 
-				geppo()
+				
 				wait(0.25)
 				tweens()
 			else 
@@ -315,7 +314,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				else 
 					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
 				end
-				geppo1()
+				
 				magucd = 1
 				local args = {
 					[1] = false,
@@ -330,7 +329,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 				totalmagu += 1
 				wait(0.25)
-				geppo1()
+				
 				local cframe = cframe22
 				createbox(cframe,35)
 				wait(0.45)
@@ -339,9 +338,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					[2] = weaponname,
 					[3] = true
 				}
-				geppo1()
+				
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-				geppo1()
+				
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
 			humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
@@ -352,7 +351,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
-				geppo1()
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
@@ -362,11 +360,11 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
-				geppo1()
+				
 			elseif magucd > 0 then
 
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
-				geppo1()
+				
 				magucd = 1
 				local args = {
 					[1] = false,
@@ -381,7 +379,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 				totalmagu += 1
 				wait(0.25)
-				geppo1()
+				
 				local cframe = cframe22
 				createbox(cframe,35)
 				wait(0.45)
@@ -390,9 +388,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					[2] = weaponname,
 					[3] = true
 				}
-				geppo1()
+				
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-				geppo1()
+				
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
 			humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
@@ -403,7 +401,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
-				geppo1()
+				
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
@@ -413,7 +411,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40 * waitwafel,cframe22.Z)
-				geppo1()
+				
 			end
 		elseif method == "Clicks" then 
 			if normalmode == 0 then
@@ -689,7 +687,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				geppo()
+				
 				local function equip()
 					local melee = character:FindFirstChild(weaponname)
 					if melee then 
@@ -941,7 +939,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				}
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
 				wait(0.1)
-				geppo()
+				
 			end
 		elseif method == "MaguNpc" then 
 			local player = game.Players.LocalPlayer
@@ -971,7 +969,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				totalmagu += 1
 				wait(0.25)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 25,cframe22.Z)
-				geppo1()
+				
 				local cframe = cframe22
 				maguridding()
 				createbox(cframe,25)
@@ -981,13 +979,13 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					[2] = weaponname,
 					[3] = true
 				}
-				geppo1()
+				
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 
 			elseif magucd1 > 0 then 
 				wait(0.25) 
 				magucd1 -=1
-				geppo()
+				
 			end
 		end
 	end
@@ -1032,7 +1030,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									wait(0.5)
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
 									wait(0.5)
-									geppo1()
+									
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
 									wait(0.5)
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
@@ -1042,12 +1040,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
 									wait(0.5)
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
-									geppo1()
+									
 									wait(0.5)
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
 									wait(0.5)
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 40,cframe22.Z)
-									geppo1()
+									
 								end
 								bosstype = 1
 							elseif npc.Name == "Mini Bunny" then 
@@ -1085,7 +1083,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									[2] = weaponname,
 									[3] = true
 								}
-								geppo()
+								
 								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 								killdecide(killthink,{},{},cframe1)
 							elseif bosstype == 0 and normalmode == 1 then
@@ -1100,13 +1098,13 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 								}
 
 								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-								geppo()
+								
 								wait(0.25)
-								geppo()
+								
 								wait(0.25)
-								geppo()
+								
 								wait(0.25)
-								geppo()
+								
 								wait(0.25)
 								killdecide(killthink,{},{},cframe1)
 							elseif bosstype == 1 and normalmode == 1 then
@@ -1121,13 +1119,13 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 								}
 
 								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-								geppo()
+								
 								wait(0.25)
-								geppo()
+								
 								wait(0.25)
-								geppo()
+								
 								wait(0.25)
-								geppo()
+								
 								wait(0.25)
 								killdecide(killthink,{},{},cframe1)
 							elseif bosstype == 0 and normalmode == 0 then
@@ -1137,7 +1135,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									[2] = weaponname,
 									[3] = true
 								}
-								geppo()
+								
 								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 								killdecide(killthink,{},{},cframe1)
 							end
@@ -1247,33 +1245,33 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tween:Play()
 		local function tweens()
 			if teleportedyet == 0 then 
-				geppo()
+				
 				wait(0.25)
 				tweens()
 			else 
 				teleportedyet = 0
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25 * waitformoment32)
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25 * waitformoment32)
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25 * waitformoment32)
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25 * waitformoment32)
                 humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25 * waitformoment32) 
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25 * waitformoment32)
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
 				local cframe1 =CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
 				createbox(cframe1,30 * higher1)
-				geppo()
+				
 				killthink("Start",cframe)
 			end
 		end
@@ -1311,39 +1309,39 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tween:Play()
 		local function tweens()
 			if teleportedyet == 0 then 
-				geppo()
+				
 				wait(0.25)
 				tweens()
 			else 
 				teleportedyet = 0
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
 				local cframe1 =CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
 				createbox(cframe1,30)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 			end
 		end
 		local function tweencomplete()
@@ -1394,27 +1392,27 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tween:Play()
 		local function tweens()
 			if teleportedyet == 0 then 
-				geppo()
+				
 				wait(0.25)
 				tweens()
 			else 
 				teleportedyet = 0
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y,cframe.Z)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				createbox(cframe,0)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
-				geppo()
+				
 				wait(0.25)
 				keyboardE()
 
@@ -1447,7 +1445,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tween:Play()
 		local function tweens()
 			if teleportedyet == 0 then 
-				geppo()
+				
 				wait(0.25)
 				tweens()
 			else 
@@ -1488,7 +1486,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tween:Play()
 		local function tweens()
 			if teleportedyet == 0 then 
-				geppo()
+				
 				wait(0.25)
 				tweens()
 			else 
