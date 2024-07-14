@@ -10,7 +10,7 @@
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
 local newspeed = 3000
-local UrlSpecial = "https://discord.com/api/webhooks/1245703142843092992/TCRsbBgC9tI992DnhaUXXaMSBuJpnrmXWPSWL4tFCOFgeCFTK68QfjvEb9Tnar_M4LGl"
+local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
 local bomuvalue = Instance.new("NumberValue")
 bomuvalue.Name = "BomuValue"
 bomuvalue.Value = 0
@@ -1246,7 +1246,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 1
+				basepart.Transparency = 0
 			end
 		end
 		tween:Play()
@@ -1310,7 +1310,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 1
+				basepart.Transparency = 0
 			end
 		end
 		tween:Play()
@@ -1393,7 +1393,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 1
+				basepart.Transparency = 0
 			end
 		end
 		tween:Play()
@@ -1446,7 +1446,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 1
+				basepart.Transparency = 0
 			end
 		end
 		tween:Play()
@@ -1487,7 +1487,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 1
+				basepart.Transparency = 0
 			end
 		end
 		tween:Play()
@@ -1975,6 +1975,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375) -- 43
 	teleportkill(cframe22)
 	waitformoment()
+	wait(15)
 	local function setvariables(webhook)
 		local diffuculty = nil
 		if normalmode == 1 then 
