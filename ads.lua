@@ -1984,9 +1984,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportkill(cframe22)
 	waitformoment()
 	waitformoment32 = 1.25
-	higher1 = 3
+	higher1 = 2
 	tweeningyet = 0
-	waitwafel = 3
+	waitwafel = 2
 	cframe22 = CFrame.new(9952.3251953125, 1644.553466796875, -21947.376953125) -- 34
 	teleportkill(cframe22)
 	waitformoment()
@@ -2071,7 +2071,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				embeds = {
 					{
 						title = "Impel Down Farm",
-						description = "Игрок "..||name||,
+						description = "Игрок "..name,
 						color = 16711680,
 						fields = {
 							{
@@ -2086,7 +2086,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					}
 				},
 				username = "Sosal",
-				avatar_url = "https://cdn.discordapp.com/attachments/1260206202009288835/1262250369854083206/image.png?ex=6695e9c3&is=66949843&hm=a2b1199bddd257c6066d1cd17a933daab3d82de3ec769f3382f40ce0fe28aee5&",
+				avatar_url = "https://media.discordapp.net/attachments/1092936535298539550/1245737429994967070/cat-with-glasses-suit-holding-glass-champagne_888396-2219.png?ex=6659d6e3&is=66588563&hm=eb63d81ddbd8f0b873f765d2290182097c4c903def5d93b40ec1dad4d18f5515&=&format=webp&quality=lossless",
 				attachments = {}
 			})
 		})
