@@ -9,7 +9,7 @@
 
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
-local newspeed = 3000
+local newspeed = 2000
 local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
 local bomuvalue = Instance.new("NumberValue")
 bomuvalue.Name = "BomuValue"
