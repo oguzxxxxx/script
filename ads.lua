@@ -1998,11 +1998,14 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportkill(cframe22)
 	waitformoment()
 	geppo1()
+	cframe22 = CFrame.new(9952.3251953125, 1644.553466796875, -21947.376953125) -- 34
+	teleportkill(cframe22)
+	waitformoment()
+	geppo1()
 	waitformoment32 = 1.25
 	higher1 = 1.2
 	tweeningyet = 1
 	waitwafel = 1.2
-	
 	cframe22 = CFrame.new(9974.77734375, 1657.553466796875, -22141.06640625) -- 35
 	teleport(cframe22)
 	cframe22 = CFrame.new(9400.0712890625, 572.8726806640625, -27929.95703125) -- 36
