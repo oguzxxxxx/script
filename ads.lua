@@ -2071,7 +2071,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				embeds = {
 					{
 						title = "Impel Down Farm",
-						description = "Игрок "..name,
+						description = "Игрок "..||name||,
 						color = 16711680,
 						fields = {
 							{
