@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 4.30 --
+-- SCRIPT VER 4.40 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -11,10 +11,7 @@ local privateserver = "S4xTUhg7G6"
 local autoexec = 1
 local newspeed = 2000
 local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
-local bomuvalue = Instance.new("NumberValue")
-bomuvalue.Name = "BomuValue"
-bomuvalue.Value = 0
-bomuvalue.Parent = workspace
+
 
 
 if autoexec == 1 then 
@@ -58,7 +55,10 @@ local weaponname = "BlackLeg"
 local waitkelvin = 0
 local waitwafel = 1
 local waitblugori = 0
-
+local bomuvalue = Instance.new("NumberValue")
+bomuvalue.Name = "BomuValue"
+bomuvalue.Value = 0
+bomuvalue.Parent = workspace
 
 
 
@@ -855,8 +855,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					[6] = humrt.CFrame,
 					["aircombo"] = "Air"
 				}
-
-
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
 				wait(0.1)
 				local player = game.Players.LocalPlayer
@@ -1116,22 +1114,13 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							if normalmode == 1 then
 								if waitonce12 == 0 then 
 									waitonce12 = 1
+									local cframe = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									createbox(cframe,0)
 									wait(0.5)
+									geppo1()
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+									geppo1()
 								end
 							end
 							if bosstype == 1 and normalmode == 0 then
@@ -1259,8 +1248,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			killdecide(killthink,table1,table2,cframe1)
 		elseif reason == "Not Finded" then 
 			if thinktime < 6 then
-				wait(0.2)
+				wait(0.25)
 				thinktime += 1
+				
 				killdecide(killthink,table1,table2,cframe1)
 			else
 				print("Not Finded NPCS!")
@@ -1269,6 +1259,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		elseif reason == "H/D Nil!" then 
 			if thinktime < 6 then
 				wait(0.25)
+				
 				thinktime += 1
 				killdecide(killthink,table1,table2,cframe1)
 			else
@@ -1283,6 +1274,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		end
 	end 
 	local function teleportkill(cframe)
+		if repeatkill == 1 then 
+			wait(1)
+		end
 		local player = game.Players.LocalPlayer
 		local name = player.Name
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1297,7 +1291,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 0
+				
 			end
 		end
 		tween:Play()
@@ -1325,11 +1319,11 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				wait(0.25 * waitformoment32) 
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
 				geppo()
-				wait(0.25 * waitformoment32)
+				wait(0.25)
 				humrt.CFrame =CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
-				local cframe1 =CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
-				createbox(cframe1,30 * higher1)
 				geppo()
+				local cframe = CFrame.new(cframe.X,cframe.Y+2,cframe.Z)
+				createbox(cframe,0)
 				killthink("Start",cframe)
 			end
 		end
@@ -1361,7 +1355,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 0
+				
 			end
 		end
 		tween:Play()
@@ -1444,7 +1438,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 0
+				
 			end
 		end
 		tween:Play()
@@ -1497,7 +1491,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 0
+				
 			end
 		end
 		tween:Play()
@@ -1538,7 +1532,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				basepart.Transparency = 0
+				
 			end
 		end
 		tween:Play()
@@ -1856,6 +1850,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitwafel = 1
 	wait(2)
 	if normalmode == 1 then
+	
 		stackleg()
 		stackleg()
 		stackleg()
@@ -1949,51 +1944,65 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
 	teleportkill(cframe22)
 	waitformoment()
-
 	cframe22 = CFrame.new(5668.52197265625, 2489.330322265625, -20261.974609375) -- 24
 	teleport(cframe22)
+	keyboardE()
 	waitformoment32 = 1.25
 	higher1 = 1.2
 	tweeningyet = 1
 	waitwafel = 1.2
+	geppo1()
 	cframe22 = CFrame.new(10022.1044921875, 1612.52490234375, -19234.732421875) -- 25
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(9961.470703125, 1628.5535888671875, -19649.857421875) -- 26
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(9700.9345703125, 1628.5537109375, -19692.38671875) -- 27
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(9677.5712890625, 1628.5535888671875, -20237.515625) -- 28
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(10109.9169921875, 1628.5537109375, -20323.015625) -- 29
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(10680.81640625, 1628.5537109375, -20339.556640625) -- 30
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(10938.724609375, 1628.5535888671875, -20506.76171875) -- 31
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(10938.5087890625, 1628.822021484375, -20929.453125) -- 32
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(10619.283203125, 1628.5535888671875, -20985.57421875) -- 33
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	waitformoment32 = 1.25
 	higher1 = 2
 	tweeningyet = 0
 	waitwafel = 2
+	geppo1()
+	keyboardE()
 	cframe22 = CFrame.new(9952.3251953125, 1644.553466796875, -21947.376953125) -- 34
 	teleportkill(cframe22)
 	waitformoment()
+	geppo1()
 	waitformoment32 = 1.25
 	higher1 = 1.2
 	tweeningyet = 1
 	waitwafel = 1.2
+	
 	cframe22 = CFrame.new(9974.77734375, 1657.553466796875, -22141.06640625) -- 35
 	teleport(cframe22)
 	cframe22 = CFrame.new(9400.0712890625, 572.8726806640625, -27929.95703125) -- 36
@@ -2017,6 +2026,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 = CFrame.new(9634.5390625, 512.7200317382812, -28434.779296875) -- 42
 	teleportkill(cframe22)
 	waitformoment()
+	keyboardE()
 	wait(3)
 	geppo1()
 	wait(3)
@@ -2047,7 +2057,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportkill(cframe22)
 	waitformoment()
 	wait(15)
-	local function setvariables(webhook)
+	local OldPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
+	local function setvariables1(webhook1)
 		local diffuculty = nil
 		if normalmode == 1 then 
 			diffuculty = "Нормальная"
@@ -2057,9 +2068,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local pointstotal =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 		local time1 = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("LeftContainer"):WaitForChild("Clear Time"):WaitForChild("Display").Text
 		local points = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("RightContainer"):WaitForChild("Total Score"):WaitForChild("Display").Text
-		webhook(diffuculty,time1,points,pointstotal)
+		webhook1(diffuculty,time1,points,pointstotal)
 	end
-	local function webhook(dif,time1,points,pointstotal)
+	local function webhook1(dif,time1,points,pointstotal)
 		local response = request({
 			Url = UrlSpecial,
 			Method = "POST",
@@ -2067,11 +2078,11 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				["Content-Type"] = "application/json"
 			},
 			Body = game.HttpService:JSONEncode({
-				content = "",
+				content = "Impel Down Complete",
 				embeds = {
 					{
 						title = "Impel Down Farm",
-						description = "Игрок "..name,
+						description = "Игрок ".. "||"..name.."||",
 						color = 16711680,
 						fields = {
 							{
@@ -2091,8 +2102,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			})
 		})
 	end
-	setvariables(webhook)
-	local mythicchest = workspace.Islands:WaitForChild("Impel Base - Finished").Models:FindFirstChild("Mythical Fruit Chest")
+	setvariables1(webhook1)
+	local mythicchest = workspace.Islands:WaitForChild("Impel Base - Finished").Models:FindFirstChild("Mythic Fruit Chest")
 	if mythicchest then
 		local models = workspace.Islands["Impel Base - Finished"].Models:GetChildren()
 		for i,model in models do 
@@ -2105,6 +2116,43 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		wait(2)
 		local cframe = mythicchest.Part.CFrame
 		teleportE(cframe)
+		wait(4)
+		local value = nil
+		local function webhook2(value,value2)
+			local response = request({
+				Url = UrlSpecial,
+				Method = "POST",
+				Headers = {
+					["Content-Type"] = "application/json"
+				},
+				Body = game.HttpService:JSONEncode({
+					content = "@everyone",
+					embeds = {
+						{
+							title = "Impel Down Farm",
+							description = "Игрок ".. "||"..name.."||",
+							color = 16711680,
+							fields = {
+								{
+									name = "Купил Мифик за"..(OldPoints - value2),
+									value = "Осталось:",value2
+								}
+							}
+						}
+					},
+					username = "Sosal",
+					avatar_url = "https://media.discordapp.net/attachments/1092936535298539550/1245737429994967070/cat-with-glasses-suit-holding-glass-champagne_888396-2219.png?ex=6659d6e3&is=66588563&hm=eb63d81ddbd8f0b873f765d2290182097c4c903def5d93b40ec1dad4d18f5515&=&format=webp&quality=lossless",
+					attachments = {}
+				})
+			})
+		end
+		local NewPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
+		if OldPoints == NewPoints then
+			
+		else 
+			value = "Да"
+			webhook2(value,NewPoints)
+		end
 	end
 	wait(2)
 	local cframe = CFrame.new(6396.14208984375, 657.998046875, -27927.330078125)
