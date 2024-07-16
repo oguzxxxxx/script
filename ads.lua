@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 4.60 --
+-- SCRIPT VER 6.10 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -9,14 +9,14 @@
 
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
-local newspeed = 3000
+local newspeed = 3500
 local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
 local UrlSpecial2 = "https://discord.com/api/webhooks/1262593935021314048/HF0zXfZ0Gx5QHVe9D63DEi-SDZV4045urSvdh9zJ5JWjE_85enTzp0CKLFJaQykmr2J9"
 
 
 
 if autoexec == 1 then 
-	wait(16)
+	wait(12)
 end
 
 
@@ -34,7 +34,7 @@ local replicatedstorage = game:GetService("ReplicatedStorage")
 local teleportedyet = 0
 local djcount = 0
 local thinktime = 0
-local magnitudenumber = 120
+local magnitudenumber = 180
 local normalmode = 0
 local bosstype = 0
 local magucd = 0
@@ -61,6 +61,7 @@ bomuvalue.Name = "BomuValue"
 bomuvalue.Value = 0
 bomuvalue.Parent = workspace
 local cantp = 0
+local kelvinchecker = 0
 
 
 
@@ -180,6 +181,28 @@ local function maguridding()
 	geppo1()
 end
 
+local function maguridding1(args)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local replicatedstorage = game:GetService("ReplicatedStorage"):GetChildren()
+	if #replicatedstorage == 0 then 
+		print("No here")
+	end
+	for i,replicatedevent in replicatedstorage do 
+		if replicatedevent.Name == name.."|ServerScriptService.Skills.Skills.SkillContainer.Magu-Magu.Magma Fist" then 
+			if replicatedevent:IsA("RemoteFunction") then
+				print("Remote")
+				replicatedevent:InvokeServer(unpack(args))
+			else
+				print("Not remote")
+			end
+		else 
+			print("Not finded remote")
+		end 					
+	end		
+	geppo1()
+end
+
 local function stackleg()
 	wait(5.1)
 	local args = {
@@ -206,7 +229,7 @@ if game.PlaceId == 1730877806 then -- LOBBY
 	wait(0.05)
 	player.PlayerGui.chooseType.Frame.RemoteEvent:FireServer(fun2)
 elseif game.PlaceId == 7465136166 then -- SECOND SEA
-	wait(19 * autoexec)
+	wait(14 * autoexec)
 	local function teleport(cframe)
 		workspace.Gravity = 0
 		local player = game.Players.LocalPlayer
@@ -245,7 +268,7 @@ elseif game.PlaceId == 7465136166 then -- SECOND SEA
 	wait(random)
 	game:GetService("TeleportService"):Teleport(1730877806, player)
 elseif game.PlaceId == 11424731604 then-- IMPEL FARM
-	wait(14 * autoexec)
+	wait(15 * autoexec)
 	local function startchecker()
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -313,97 +336,97 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local npc = table1[1]
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			if npchumrt then
-			if npc.Name == "Kelvin, the Nutcracker" then 
-				repeatkill = 0
-				if waitkelvin == 0 then 
-					waitkelvin = 1
-					cframe22 = npchumrt.CFrame
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					geppo1()
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					geppo1()
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					geppo1()
-				end
-				bosstype = 1
-			else 
-				repeatkill = 1
-			end
-			local npchum = npc:FindFirstChild("Humanoid")
-			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			if magucd == 0 then
-				if npc.Name == "Elo The Bunny" then
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 12,cframe22.Z)
+				if npc.Name == "Kelvin, the Nutcracker" then 
+					repeatkill = 0
+					if waitkelvin == 0 then 
+						waitkelvin = 1
+						cframe22 = npchumrt.CFrame
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						geppo1()
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						geppo1()
+					end
+					bosstype = 1
 				else 
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
+					repeatkill = 1
 				end
-				geppo1()
-				
-				local args = {
-					[1] = false,
-					[2] = weaponname
-				}
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				if magucd == 0 then
+					if npc.Name == "Elo The Bunny" then
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 12,cframe22.Z)
+					else 
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
+					end
+					geppo1()
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-				local args = {
-					[1] = "Magma Swamp"
-				}
+					local args = {
+						[1] = false,
+						[2] = weaponname
+					}
 
-				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-				totalmagu += 1
-				wait(0.25)
-				geppo1()
-				local cframe = cframe22
-				createbox(cframe,30 * higher1)
-				wait(0.45)
-				local args = {
-					[1] = true,
-					[2] = weaponname,
-					[3] = true
-				}
-				geppo1()
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-				geppo1()
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				geppo1()
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				wait(0.5)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					local args = {
+						[1] = "Magma Swamp"
+					}
+
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+					totalmagu += 1
+					wait(0.25)
+					geppo1()
+					local cframe = cframe22
+					createbox(cframe,30 * higher1)
+					wait(0.45)
+					local args = {
+						[1] = true,
+						[2] = weaponname,
+						[3] = true
+					}
+					geppo1()
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					geppo1()
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					geppo1()
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 					geppo1()
 				end
 			elseif magucd > 0 then
@@ -995,6 +1018,121 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local npc = table1[1]
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			if magucd1 == 0 then 
+				magucd1 = 20
+				geppo()
+				wait(0.1)
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npc = table1[1]
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * higher1,npchumrt.CFrame.Z)
+				local args = {
+					[1] = false,
+					[2] = weaponname
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				local args = {
+					[1] = "Magma Fist"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				wait(0.15)
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npc = table1[1]
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				magucd1 -= 1
+				local args = {
+					[1] = CFrame.new(humrt.Position,npchumrt.Position)
+				}
+
+				maguridding1(args)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				wait(0.25)
+				magucd1 -= 1 
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				geppo()
+				wait(0.25)
+				magucd1 -= 1
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				geppo()
+				
+				local args = {
+					[1] = true,
+					[2] = weaponname,
+					[3] = true
+				}
+				geppo()
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			elseif magucd1 < 20 and magucd1 > 10 then
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				geppo()
+				wait(0.25)
+				magucd1 -= 1
+			elseif magucd1 < 10 and magucd1 > 0 then 
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				geppo()
+				wait(0.25)
+				magucd1 -= 1
+			elseif magucd1 == 10 then	
+				humrt.CFrame = npchumrt.CFrame
+				geppo()
+				wait(0.1)
+				local args = {
+					[1] = false,
+					[2] = weaponname
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				local args = {
+					[1] = "Magma Swamp"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				wait(0.15)
+
+				geppo()
+				magucd1 -= 1
+				local cframe = cframe22
+				maguridding()
+				createbox(cframe,30 * higher1)
+				wait(0.25)
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				geppo()
+				magucd1 -= 1
+				wait(0.25)
+				geppo()
+				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				magucd1 -= 1
+				
+				local args = {
+					[1] = true,
+					[2] = weaponname,
+					[3] = true
+				}
+				geppo()
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+
+			end
+		elseif method == "MaguNpc1" then 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npc = table1[1]
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			if magucd1 == 0 then
 				magucd1 = 16	
 				humrt.CFrame = npchumrt.CFrame
@@ -1070,7 +1208,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 								cframe22 = npchumrt.CFrame
 								bosstype = 1
 							elseif npc.Name == "Blugori" then 
-								
+
 								if waitblugori == 0 then 
 									waitblugori = 1
 									local cframe = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
@@ -1111,10 +1249,20 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 									wait(0.5)
 									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									
+
 								end
 								bosstype = 1 
-					
+							elseif npc.Name == "Kelvin, The Nutcracker" then 
+								Kill(table1,table2,"MaguNpc1",cframe1)
+								kelvinchecker = 1
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
+								geppo()
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								killdecide(killthink,{},{},cframe1)
 							end
 							if normalmode == 1 then
 								if waitonce12 == 0 then 
@@ -1128,6 +1276,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									geppo1()
 								end
 							end
+							if kelvinchecker == 0 then
 							if bosstype == 1 and normalmode == 0 then
 								Kill(table1,table2,"Magu",cframe1)
 								local args = {
@@ -1194,7 +1343,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						end		
 						tweens()
 					end
-
+end
 				end
 			end
 		end
@@ -1255,7 +1404,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			if thinktime < 6 then
 				wait(0.25)
 				thinktime += 1
-				
+
 				killdecide(killthink,table1,table2,cframe1)
 			else
 				print("Not Finded NPCS!")
@@ -1264,7 +1413,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		elseif reason == "H/D Nil!" then 
 			if thinktime < 6 then
 				wait(0.25)
-				
+
 				thinktime += 1
 				killdecide(killthink,table1,table2,cframe1)
 			else
@@ -1296,7 +1445,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				
+
 			end
 		end
 		tween:Play()
@@ -1360,7 +1509,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				
+
 			end
 		end
 		tween:Play()
@@ -1420,6 +1569,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			print("Waiting")
 		until killedyet == 1
 		killedyet = 0
+		kelvinchecker = 0
 		bosstype = 0
 		magucd = 0
 		waitonce = 0
@@ -1443,7 +1593,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				
+
 			end
 		end
 		tween:Play()
@@ -1496,7 +1646,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				
+
 			end
 		end
 		tween:Play()
@@ -1537,7 +1687,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-				
+
 			end
 		end
 		tween:Play()
@@ -1796,180 +1946,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 
 
 	---      ---
-	startchecker()
-	repeatkill = 1
-	waitformoment32 = 4
-	workspace.Gravity= 0
-	wait(3)
-	cframe22 =CFrame.new(5866,7,-10227)
-	teleportkill(cframe22)
-	waitformoment()
 	
-	wait(15)
-	normalmode = 1
-	wait(2)
-	diffucultset()
-	wait(1)
-	if normalmode == 0 then 
-		speed = newspeed
-		stackleg()
-		local cframe = CFrame.new(2950,2075,-13466)
-		teleportE(cframe)
-	end
-	CFrame.new(2950,2075,-13466)
-	workspace.Gravity = 0
-	keypickup()
-	wait(5)
-	speed = newspeed
-	if normalmode == 1 then 
-		local function statsUp()
-			local args = {
-				[1] = "BlackLeg"
-			}
-
-			game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
-			local args = {
-				[1] = "BlackLeg"
-			}
-
-			game:GetService("ReplicatedStorage").Events.learnSkill:FireServer(unpack(args))
-			wait(2)
-
-			wait(0.05)
-			local fun1 = "FightingStyleMastery"
-			local fun2 = nil
-			local fun3 = 30
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
-			wait(0.05)
-			local fun1 = "Defense"
-			local fun2 = nil
-			local fun3 = 495
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
-			wait(0.05)
-			local fun1 = "Strength"
-			local fun2 = nil
-			local fun3 = 600
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
-		
-		end
-		statsUp()
-	else
-		bomuvalue = 1
-	end
-	workspace.Gravity= 0
-	magnitudenumber = 120
-	waitformoment32 = 4
-	higher1 = 1
-	waitwafel = 1
-	wait(2)
-	if normalmode == 1 then
-	
-		stackleg()
-		stackleg()
-		stackleg()
-		stackleg()
-		stackleg()
-	end
-	cframe22 = CFrame.new(2943.087890625, 2129.49365234375, -13818.97265625) -- 1.1
-	teleportE(cframe22)
-	cframe22 = CFrame.new(2954.192626953125, 2075.445556640625, -13954.1328125) -- 1
-	teleportkill(cframe22)
-	waitformoment()
-	waitformoment32 = 2
-	cframe22 = CFrame.new(2952.61328125, 2136.442626953125, -15376.771484375) -- 2.1
-	teleportE(cframe22)
-	repeatkill = 1
-	cframe22 = CFrame.new(2667.587890625, 2074.741455078125, -15512.123046875) -- 2
-	teleportkill(cframe22)
-	waitformoment()
-	wait(6)
-	cantp = 1
-	waitformoment32 = 1
-	magnitudenumber = 800
-
-	cframe22 = CFrame.new(3194.72216796875, 2380.4306640625, -20271.548828125) -- 3
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(3202.842041015625, 2378.4306640625, -20392.052734375) -- 4
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(3449.654052734375, 2378.4306640625, -20376.408203125) -- 5
-	teleportkill(cframe22)
-	waitformoment()
-	waitformoment32 = 2
-	cframe22 = CFrame.new(2871.26025390625, 2384.61376953125, -20370.84375) -- 6
-	teleportkill(cframe22)
-	waitformoment()
-	waitformoment32 = 1.25
-	cframe22 = CFrame.new(2917.198974609375, 2378.38037109375, -20600.73046875) -- 7
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(3198.374755859375, 2343.620361328125, -20529.490234375) -- 8
-	teleportE(cframe22)
-	waitformoment32 = 1.25
-	cframe22 = CFrame.new(3198.039306640625, 2378.4306640625, -20395.5) -- 9
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(3199.22607421875, 2378.380859375, -20560.46875) -- 10
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(3197.741943359375, 2375.48095703125, -20838.3671875) -- 11
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(3198.759521484375, 2378.380615234375, -21078.46484375) -- 12
-	teleport(cframe22)
-	cframe22 = CFrame.new(4976.70849609375, 2306.330810546875, -20745.947265625) -- 13
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(4785.177734375, 2306.330078125, -20766.677734375) -- 14
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5108.2919921875, 2306.330078125, -20790.15234375) -- 15
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5165.056640625, 2311.310302734375, -20796.853515625)-- 16
-	teleportE(cframe22)
-	cframe22 = CFrame.new(4703.20751953125, 2308.577392578125, -20719.33984375)  -- 17
-	teleportE(cframe22)
-	cframe22 = CFrame.new(4986.65234375, 2306.330078125, -20863.931640625) -- 18.1
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(4850.943359375, 2368.330078125, -21009.361328125) -- 18
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(4763.72021484375, 2398.830078125, -20785.625) -- 19
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5245.45263671875, 2398.1298828125, -20798.67578125) -- 20
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5520.41357421875, 2405.830078125, -20803.14453125) -- 21
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5593.65673828125, 2499.830078125, -20974.90234375) -- 22
-	teleportkill(cframe22)
-	waitformoment()
-	higher1 = 5
-	waitformoment32 = 0.5
-	waitwafel = 5
-	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
-	teleportkill(cframe22)
-	waitformoment()
-	cframe22 = CFrame.new(5668.52197265625, 2489.330322265625, -20261.974609375) -- 24
-	teleport(cframe22)
-	keyboardE()
-	waitformoment32 = 1.25
-	higher1 = 1.2
-	tweeningyet = 1
-	waitwafel = 1.2
-	geppo1()
-	cframe22 = CFrame.new(10022.1044921875, 1612.52490234375, -19234.732421875) -- 25
-	teleportkill(cframe22)
-	waitformoment()
-	geppo1()
 	cframe22 = CFrame.new(9961.470703125, 1628.5535888671875, -19649.857421875) -- 26
 	teleportkill(cframe22)
 	waitformoment()
@@ -2017,9 +1994,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitformoment()
 	geppo1()
 	waitformoment32 = 1.25
-	higher1 = 1.2
+	higher1 = 1.25
 	tweeningyet = 1
-	waitwafel = 1.2
+	waitwafel = 1.25
 	cframe22 = CFrame.new(9974.77734375, 1657.553466796875, -22141.06640625) -- 35
 	teleport(cframe22)
 	cframe22 = CFrame.new(9400.0712890625, 572.8726806640625, -27929.95703125) -- 36
@@ -2165,15 +2142,16 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		end
 		local NewPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 		if OldPoints == NewPoints then
-			
+
 		else 
 			value = "Да"
 			webhook2(value,NewPoints)
 		end
 	end
 	wait(2)
-	
+
 	local cframe = CFrame.new(6396.14208984375, 657.998046875, -27927.330078125)
 	teleportE(cframe)
 	workspace.Gravity = 192.6
 end
+
