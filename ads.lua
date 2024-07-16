@@ -1066,7 +1066,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				magucd1 -= 1
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 				geppo()
-				
+
 				local args = {
 					[1] = true,
 					[2] = weaponname,
@@ -1114,7 +1114,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				geppo()
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 				magucd1 -= 1
-				
+
 				local args = {
 					[1] = true,
 					[2] = weaponname,
@@ -1277,73 +1277,73 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 								end
 							end
 							if kelvinchecker == 0 then
-							if bosstype == 1 and normalmode == 0 then
-								Kill(table1,table2,"Magu",cframe1)
-								local args = {
-									[1] = true,
-									[2] = weaponname,
-									[3] = true
-								}
-								geppo()
-								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-								killdecide(killthink,{},{},cframe1)
-							elseif bosstype == 0 and normalmode == 1 then
-								Kill(table1,table2,"Clicks",cframe1)
-								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-								createbox(cframe2,30 * higher1)
+								if bosstype == 1 and normalmode == 0 then
+									Kill(table1,table2,"Magu",cframe1)
+									local args = {
+										[1] = true,
+										[2] = weaponname,
+										[3] = true
+									}
+									geppo()
+									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+									killdecide(killthink,{},{},cframe1)
+								elseif bosstype == 0 and normalmode == 1 then
+									Kill(table1,table2,"Clicks",cframe1)
+									local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
+									createbox(cframe2,30 * higher1)
 
-								local args = {
-									[1] = true,
-									[2] = weaponname,
-									[3] = true
-								}
+									local args = {
+										[1] = true,
+										[2] = weaponname,
+										[3] = true
+									}
 
-								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-								geppo()
-								wait(0.25)
-								geppo()
-								wait(0.25)
-								geppo()
-								wait(0.25)
-								geppo()
-								wait(0.25)
-								killdecide(killthink,{},{},cframe1)
-							elseif bosstype == 1 and normalmode == 1 then
-								Kill(table1,table2,"Clicks",cframe1)
-								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-								createbox(cframe2,30 * higher1)
+									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+									geppo()
+									wait(0.25)
+									geppo()
+									wait(0.25)
+									geppo()
+									wait(0.25)
+									geppo()
+									wait(0.25)
+									killdecide(killthink,{},{},cframe1)
+								elseif bosstype == 1 and normalmode == 1 then
+									Kill(table1,table2,"Clicks",cframe1)
+									local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
+									createbox(cframe2,30 * higher1)
 
-								local args = {
-									[1] = true,
-									[2] = weaponname,
-									[3] = true
-								}
+									local args = {
+										[1] = true,
+										[2] = weaponname,
+										[3] = true
+									}
 
-								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-								geppo()
-								wait(0.25)
-								geppo()
-								wait(0.25)
-								geppo()
-								wait(0.25)
-								geppo()
-								wait(0.25)
-								killdecide(killthink,{},{},cframe1)
-							elseif bosstype == 0 and normalmode == 0 then
-								Kill(table1,table2,"MaguNpc",cframe1)
-								local args = {
-									[1] = true,
-									[2] = weaponname,
-									[3] = true
-								}
-								geppo()
-								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-								killdecide(killthink,{},{},cframe1)
-							end
-						end		
-						tweens()
+									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+									geppo()
+									wait(0.25)
+									geppo()
+									wait(0.25)
+									geppo()
+									wait(0.25)
+									geppo()
+									wait(0.25)
+									killdecide(killthink,{},{},cframe1)
+								elseif bosstype == 0 and normalmode == 0 then
+									Kill(table1,table2,"MaguNpc",cframe1)
+									local args = {
+										[1] = true,
+										[2] = weaponname,
+										[3] = true
+									}
+									geppo()
+									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+									killdecide(killthink,{},{},cframe1)
+								end
+							end		
+							tweens()
+						end
 					end
-end
 				end
 			end
 		end
@@ -1945,8 +1945,182 @@ end
 
 
 
+
 	---      ---
-	
+	startchecker()
+	repeatkill = 1
+	waitformoment32 = 4
+	workspace.Gravity= 0
+	wait(3)
+	cframe22 =CFrame.new(5866,7,-10227)
+	teleportkill(cframe22)
+	waitformoment()
+
+	wait(15)
+	normalmode = 1
+	wait(2)
+	diffucultset()
+	wait(1)
+	if normalmode == 0 then 
+		speed = newspeed
+		stackleg()
+		local cframe = CFrame.new(2950,2075,-13466)
+		teleportE(cframe)
+	end
+	CFrame.new(2950,2075,-13466)
+	workspace.Gravity = 0
+	keypickup()
+	wait(5)
+	speed = newspeed
+	if normalmode == 1 then 
+		local function statsUp()
+			local args = {
+				[1] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
+			local args = {
+				[1] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.learnSkill:FireServer(unpack(args))
+			wait(2)
+
+			wait(0.05)
+			local fun1 = "FightingStyleMastery"
+			local fun2 = nil
+			local fun3 = 30
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+			wait(0.05)
+			local fun1 = "Defense"
+			local fun2 = nil
+			local fun3 = 495
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+			wait(0.05)
+			local fun1 = "Strength"
+			local fun2 = nil
+			local fun3 = 600
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+
+		end
+		statsUp()
+	else
+		bomuvalue = 1
+	end
+	workspace.Gravity= 0
+	magnitudenumber = 120
+	waitformoment32 = 4
+	higher1 = 1
+	waitwafel = 1
+	wait(2)
+	if normalmode == 1 then
+
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+	end
+	cframe22 = CFrame.new(2943.087890625, 2129.49365234375, -13818.97265625) -- 1.1
+	teleportE(cframe22)
+	cframe22 = CFrame.new(2954.192626953125, 2075.445556640625, -13954.1328125) -- 1
+	teleportkill(cframe22)
+	waitformoment()
+	waitformoment32 = 2
+	cframe22 = CFrame.new(2952.61328125, 2136.442626953125, -15376.771484375) -- 2.1
+	teleportE(cframe22)
+	repeatkill = 1
+	cframe22 = CFrame.new(2667.587890625, 2074.741455078125, -15512.123046875) -- 2
+	teleportkill(cframe22)
+	waitformoment()
+	wait(6)
+	cantp = 1
+	waitformoment32 = 1
+	magnitudenumber = 800
+
+	cframe22 = CFrame.new(3194.72216796875, 2380.4306640625, -20271.548828125) -- 3
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(3202.842041015625, 2378.4306640625, -20392.052734375) -- 4
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(3449.654052734375, 2378.4306640625, -20376.408203125) -- 5
+	teleportkill(cframe22)
+	waitformoment()
+	waitformoment32 = 2
+	cframe22 = CFrame.new(2871.26025390625, 2384.61376953125, -20370.84375) -- 6
+	teleportkill(cframe22)
+	waitformoment()
+	waitformoment32 = 1.25
+	cframe22 = CFrame.new(2917.198974609375, 2378.38037109375, -20600.73046875) -- 7
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(3198.374755859375, 2343.620361328125, -20529.490234375) -- 8
+	teleportE(cframe22)
+	waitformoment32 = 1.25
+	cframe22 = CFrame.new(3198.039306640625, 2378.4306640625, -20395.5) -- 9
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(3199.22607421875, 2378.380859375, -20560.46875) -- 10
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(3197.741943359375, 2375.48095703125, -20838.3671875) -- 11
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(3198.759521484375, 2378.380615234375, -21078.46484375) -- 12
+	teleport(cframe22)
+	cframe22 = CFrame.new(4976.70849609375, 2306.330810546875, -20745.947265625) -- 13
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(4785.177734375, 2306.330078125, -20766.677734375) -- 14
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5108.2919921875, 2306.330078125, -20790.15234375) -- 15
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5165.056640625, 2311.310302734375, -20796.853515625)-- 16
+	teleportE(cframe22)
+	cframe22 = CFrame.new(4703.20751953125, 2308.577392578125, -20719.33984375)  -- 17
+	teleportE(cframe22)
+	cframe22 = CFrame.new(4986.65234375, 2306.330078125, -20863.931640625) -- 18.1
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(4850.943359375, 2368.330078125, -21009.361328125) -- 18
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(4763.72021484375, 2398.830078125, -20785.625) -- 19
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5245.45263671875, 2398.1298828125, -20798.67578125) -- 20
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5520.41357421875, 2405.830078125, -20803.14453125) -- 21
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5593.65673828125, 2499.830078125, -20974.90234375) -- 22
+	teleportkill(cframe22)
+	waitformoment()
+	higher1 = 5
+	waitformoment32 = 0.5
+	waitwafel = 5
+	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5668.29150390625, 2482.162109375, -20476.57421875) -- 23
+	teleportkill(cframe22)
+	waitformoment()
+	cframe22 = CFrame.new(5668.52197265625, 2489.330322265625, -20261.974609375) -- 24
+	teleport(cframe22)
+	keyboardE()
+	waitformoment32 = 1.25
+	higher1 = 1.25
+	tweeningyet = 1
+	waitwafel = 1.25
+	geppo1()
+	cframe22 = CFrame.new(10022.1044921875, 1612.52490234375, -19234.732421875) -- 25
+	teleportkill(cframe22)
+	waitformoment()
+	geppo1()
 	cframe22 = CFrame.new(9961.470703125, 1628.5535888671875, -19649.857421875) -- 26
 	teleportkill(cframe22)
 	waitformoment()
@@ -2154,4 +2328,3 @@ end
 	teleportE(cframe)
 	workspace.Gravity = 192.6
 end
-
