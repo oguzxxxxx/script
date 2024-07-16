@@ -2138,7 +2138,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							fields = {
 								{
 									name = "Купил Мифик за"..(OldPoints - value2),
-									value = "Осталось:",value2
+									value = "Осталось:"..value2
 								}
 							}
 						}
@@ -2151,7 +2151,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		end
 		local NewPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 		if OldPoints == NewPoints then
-			
+			value = "Нет"
+			webhook2(value,NewPoints)
 		else 
 			value = "Да"
 			webhook2(value,NewPoints)
