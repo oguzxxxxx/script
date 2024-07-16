@@ -1268,7 +1268,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									geppo1()
 								end
 							end
-							
+
 							if bosstype == 1 and normalmode == 0 then
 								if kelvinchecker == 1 then 
 									Kill(table1,table2,"MaguNpc1",cframe1)
@@ -1292,62 +1292,62 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 									killdecide(killthink,{},{},cframe1)
 								end
-								elseif bosstype == 0 and normalmode == 1 then
-									Kill(table1,table2,"Clicks",cframe1)
-									local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-									createbox(cframe2,30 * higher1)
+							elseif bosstype == 0 and normalmode == 1 then
+								Kill(table1,table2,"Clicks",cframe1)
+								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
+								createbox(cframe2,30 * higher1)
 
-									local args = {
-										[1] = true,
-										[2] = weaponname,
-										[3] = true
-									}
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
 
-									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									killdecide(killthink,{},{},cframe1)
-								elseif bosstype == 1 and normalmode == 1 then
-									Kill(table1,table2,"Clicks",cframe1)
-									local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-									createbox(cframe2,30 * higher1)
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								killdecide(killthink,{},{},cframe1)
+							elseif bosstype == 1 and normalmode == 1 then
+								Kill(table1,table2,"Clicks",cframe1)
+								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
+								createbox(cframe2,30 * higher1)
 
-									local args = {
-										[1] = true,
-										[2] = weaponname,
-										[3] = true
-									}
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
 
-									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									killdecide(killthink,{},{},cframe1)
-								elseif bosstype == 0 and normalmode == 0 then
-									Kill(table1,table2,"MaguNpc",cframe1)
-									local args = {
-										[1] = true,
-										[2] = weaponname,
-										[3] = true
-									}
-									geppo()
-									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-									killdecide(killthink,{},{},cframe1)
-								end
-							end		
-							tweens()
-						
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								killdecide(killthink,{},{},cframe1)
+							elseif bosstype == 0 and normalmode == 0 then
+								Kill(table1,table2,"MaguNpc",cframe1)
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
+								geppo()
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								killdecide(killthink,{},{},cframe1)
+							end
+						end		
+						tweens()
+
 					end
 				end
 			end
@@ -1642,8 +1642,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 50,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 50,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1925,6 +1925,141 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		end
 
 	end
+	
+	local function equip()
+		local melee = character:FindFirstChild(weaponname)
+		if melee then 
+
+		else 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local bar1 = player.PlayerGui.BackpackGui.Hotbar.One:GetChildren()
+			for i,item in bar1 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.One
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar2 = player.PlayerGui.BackpackGui.Hotbar.Two:GetChildren()
+			for i,item in bar2 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.Two
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar3 = player.PlayerGui.BackpackGui.Hotbar.Three:GetChildren()
+			for i,item in bar3 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.Three
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar4 = player.PlayerGui.BackpackGui.Hotbar.Four:GetChildren()
+			for i,item in bar4 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.Four
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar5 = player.PlayerGui.BackpackGui.Hotbar.Five:GetChildren()
+			for i,item in bar5 do 
+				if item.Name == weaponname then  
+					local keycode = Enum.KeyCode.Five
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar6 = player.PlayerGui.BackpackGui.Hotbar.Six:GetChildren()
+			for i,item in bar6 do 
+				if item.Name == weaponname then  
+					local keycode = Enum.KeyCode.Six
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar7 = player.PlayerGui.BackpackGui.Hotbar.Seven:GetChildren()
+			for i,item in bar7 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.Seven
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar8 = player.PlayerGui.BackpackGui.Hotbar.Eight:GetChildren()
+			for i,item in bar8 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.Eight
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar9 = player.PlayerGui.BackpackGui.Hotbar.Nine:GetChildren()
+			for i,item in bar9 do 
+				if item.Name == weaponname then 
+					local keycode = Enum.KeyCode.Nine
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local args = {
+				[1] = false,
+				[2] = weaponname
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			wait(0.1)
+			local virtualinputservice = game:GetService("VirtualInputManager")
+			virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+			wait(0.1)
+			virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+			wait(0.25)
+			local virtualinputservice = game:GetService("VirtualInputManager")
+			virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+			wait(0.1)
+			virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+			wait(0.25)
+			local args = {
+				[1] = true,
+				[2] = weaponname,
+				[3] = true
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+		end
+	end
+	
+
 	---      ---
 
 
@@ -1976,6 +2111,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	workspace.Gravity = 0
 	keypickup()
 	wait(5)
+	equip()
 	speed = newspeed
 	if normalmode == 1 then 
 		local function statsUp()
@@ -2333,3 +2469,5 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportE(cframe)
 	workspace.Gravity = 192.6
 end
+
+
