@@ -2106,7 +2106,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		})
 	end
 	setvariables1(webhook1)
-	local mythicchest = workspace.Islands:WaitForChild("Impel Base - Finished").Models:FindFirstChild("Mythic Fruit Chest")
+	local mythicchest = workspace.Islands:WaitForChild("Impel Base - Finished").Models:FindFirstChild("Mythical Fruit Chest")
 	if mythicchest then
 		local models = workspace.Islands["Impel Base - Finished"].Models:GetChildren()
 		for i,model in models do 
@@ -2151,14 +2151,14 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		end
 		local NewPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 		if OldPoints == NewPoints then
-			value = "Нет"
-			webhook2(value,NewPoints)
+			
 		else 
 			value = "Да"
 			webhook2(value,NewPoints)
 		end
 	end
 	wait(2)
+	
 	local cframe = CFrame.new(6396.14208984375, 657.998046875, -27927.330078125)
 	teleportE(cframe)
 	workspace.Gravity = 192.6
