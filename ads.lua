@@ -60,7 +60,7 @@ local bomuvalue = Instance.new("NumberValue")
 bomuvalue.Name = "BomuValue"
 bomuvalue.Value = 0
 bomuvalue.Parent = workspace
-
+local cantp = 0
 
 
 
@@ -214,8 +214,8 @@ elseif game.PlaceId == 7465136166 then -- SECOND SEA
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(1)
 		local speedtime = (humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -978,7 +978,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 
 				totalmagu += 1
-				wait(0.25)
+				wait(0.125)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 				geppo()
 				local cframe = cframe22
@@ -994,7 +994,10 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 
 			elseif magucd1 > 0 then 
-				wait(0.25) 
+				wait(0.25)
+				if cantp == 1 then 
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				end
 				magucd1 -=1
 				geppo()
 			end
@@ -1283,8 +1286,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1347,8 +1350,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1431,8 +1434,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
 		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
@@ -1483,8 +1486,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 50,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 50,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1524,8 +1527,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1871,6 +1874,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportkill(cframe22)
 	waitformoment()
 	wait(6)
+	cantp = 1
 	waitformoment32 = 1
 	magnitudenumber = 800
 
