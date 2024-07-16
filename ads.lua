@@ -864,6 +864,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 
 							end
 						end
+						local cframe = npchumrt.CFrame
+						createbox(cframe,30 * higher1)
 						local args = {
 							[1] = false,
 							[2] = weaponname
@@ -1268,7 +1270,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									geppo1()
 								end
 							end
-							
+
 							if bosstype == 1 and normalmode == 0 then
 								if kelvinchecker == 1 then 
 									Kill(table1,table2,"MaguNpc1",cframe1)
@@ -1292,62 +1294,62 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 									killdecide(killthink,{},{},cframe1)
 								end
-								elseif bosstype == 0 and normalmode == 1 then
-									Kill(table1,table2,"Clicks",cframe1)
-									local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-									createbox(cframe2,30 * higher1)
+							elseif bosstype == 0 and normalmode == 1 then
+								Kill(table1,table2,"Clicks",cframe1)
+								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
+								createbox(cframe2,30 * higher1)
 
-									local args = {
-										[1] = true,
-										[2] = weaponname,
-										[3] = true
-									}
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
 
-									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									killdecide(killthink,{},{},cframe1)
-								elseif bosstype == 1 and normalmode == 1 then
-									Kill(table1,table2,"Clicks",cframe1)
-									local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
-									createbox(cframe2,30 * higher1)
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								killdecide(killthink,{},{},cframe1)
+							elseif bosstype == 1 and normalmode == 1 then
+								Kill(table1,table2,"Clicks",cframe1)
+								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
+								createbox(cframe2,30 * higher1)
 
-									local args = {
-										[1] = true,
-										[2] = weaponname,
-										[3] = true
-									}
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
 
-									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									geppo()
-									wait(0.25)
-									killdecide(killthink,{},{},cframe1)
-								elseif bosstype == 0 and normalmode == 0 then
-									Kill(table1,table2,"MaguNpc",cframe1)
-									local args = {
-										[1] = true,
-										[2] = weaponname,
-										[3] = true
-									}
-									geppo()
-									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-									killdecide(killthink,{},{},cframe1)
-								end
-							end		
-							tweens()
-						
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								geppo()
+								wait(0.25)
+								killdecide(killthink,{},{},cframe1)
+							elseif bosstype == 0 and normalmode == 0 then
+								Kill(table1,table2,"MaguNpc",cframe1)
+								local args = {
+									[1] = true,
+									[2] = weaponname,
+									[3] = true
+								}
+								geppo()
+								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+								killdecide(killthink,{},{},cframe1)
+							end
+						end		
+						tweens()
+
 					end
 				end
 			end
@@ -2234,9 +2236,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	local function setvariables1(webhook1)
 		local diffuculty = nil
 		if normalmode == 1 then 
-			diffuculty = "Нормальная"
+			diffuculty = "ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ"
 		else 
-			diffuculty = "Кошмар"
+			diffuculty = "ÐšÐ¾ÑˆÐ¼Ð°Ñ€"
 		end
 		local pointstotal =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 		local time1 = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("LeftContainer"):WaitForChild("Clear Time"):WaitForChild("Display").Text
@@ -2255,16 +2257,16 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				embeds = {
 					{
 						title = "Impel Down Farm",
-						description = "Игрок ".. "||"..name.."||",
+						description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
 						color = 16711680,
 						fields = {
 							{
-								name = "Прошел за "..time1,
-								value = "Сложность:"..dif
+								name = "ÐŸÑ€Ð¾ÑˆÐµÐ» Ð·Ð° "..time1,
+								value = "Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ:"..dif
 							},
 							{
-								name = "Получил "..points,
-								value = "Сейчас всего "..pointstotal.." очков"
+								name = "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ð» "..points,
+								value = "Ð¡ÐµÐ¹Ñ‡Ð°Ñ Ð²ÑÐµÐ³Ð¾ "..pointstotal.." Ð¾Ñ‡ÐºÐ¾Ð²"
 							}
 						}
 					}
@@ -2303,12 +2305,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					embeds = {
 						{
 							title = "Impel Down Farm",
-							description = "Игрок ".. "||"..name.."||",
+							description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
 							color = 16711680,
 							fields = {
 								{
-									name = "Купил Мифик за:"..(OldPoints - value2),
-									value = "Осталось:"..value2
+									name = "ÐšÑƒÐ¿Ð¸Ð» ÐœÐ¸Ñ„Ð¸Ðº Ð·Ð°:"..(OldPoints - value2),
+									value = "ÐžÑÑ‚Ð°Ð»Ð¾ÑÑŒ:"..value2
 								}
 							}
 						}
@@ -2323,7 +2325,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		if OldPoints == NewPoints then
 
 		else 
-			value = "Да"
+			value = "Ð”Ð°"
 			webhook2(value,NewPoints)
 		end
 	end
@@ -2333,4 +2335,3 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportE(cframe)
 	workspace.Gravity = 192.6
 end
-
