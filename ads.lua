@@ -978,7 +978,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 
 				totalmagu += 1
-				wait(0.125)
+				wait(0.25)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 				geppo()
 				local cframe = cframe22
@@ -994,8 +994,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 
 			elseif magucd1 > 0 then 
-				wait(0.25)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				wait(0.25) 
 				magucd1 -=1
 				geppo()
 			end
