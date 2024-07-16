@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 4.40 --
+-- SCRIPT VER 4.50 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -11,6 +11,7 @@ local privateserver = "S4xTUhg7G6"
 local autoexec = 1
 local newspeed = 2000
 local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
+local UrlSpecial2 = "https://discord.com/api/webhooks/1262593935021314048/HF0zXfZ0Gx5QHVe9D63DEi-SDZV4045urSvdh9zJ5JWjE_85enTzp0CKLFJaQykmr2J9"
 
 
 
@@ -2100,7 +2101,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					}
 				},
 				username = "Sosal",
-				avatar_url = "https://media.discordapp.net/attachments/1092936535298539550/1245737429994967070/cat-with-glasses-suit-holding-glass-champagne_888396-2219.png?ex=6659d6e3&is=66588563&hm=eb63d81ddbd8f0b873f765d2290182097c4c903def5d93b40ec1dad4d18f5515&=&format=webp&quality=lossless",
+				avatar_url = "https://cdn.discordapp.com/attachments/826341306506543144/1262617612672827392/image.png?ex=66973fc9&is=6695ee49&hm=3956ca904e0c7741c408ca2403211c99c5843a8e36e88b2e547b4512ff600c13&",
 				attachments = {}
 			})
 		})
@@ -2123,7 +2124,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local value = nil
 		local function webhook2(value,value2)
 			local response = request({
-				Url = UrlSpecial,
+				Url = UrlSpecial2,
 				Method = "POST",
 				Headers = {
 					["Content-Type"] = "application/json"
@@ -2143,8 +2144,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							}
 						}
 					},
-					username = "Sosal",
-					avatar_url = "https://media.discordapp.net/attachments/1092936535298539550/1245737429994967070/cat-with-glasses-suit-holding-glass-champagne_888396-2219.png?ex=6659d6e3&is=66588563&hm=eb63d81ddbd8f0b873f765d2290182097c4c903def5d93b40ec1dad4d18f5515&=&format=webp&quality=lossless",
+					username = "Podstilka",
+					avatar_url = "https://cdn.discordapp.com/attachments/826341306506543144/1262618951452459079/image.png?ex=66974108&is=6695ef88&hm=5178ad30814f543a7a863ff1a000c11ed9abee6a6773b96b4bfefcd12663d771&",
 					attachments = {}
 				})
 			})
