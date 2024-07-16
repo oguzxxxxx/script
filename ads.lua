@@ -2111,10 +2111,10 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	workspace.Gravity = 0
 	keypickup()
 	wait(5)
-	equip()
 	speed = newspeed
 	if normalmode == 1 then 
 		local function statsUp()
+			equip()
 			local args = {
 				[1] = "BlackLeg"
 			}
