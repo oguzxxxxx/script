@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 4.40 --
+-- SCRIPT VER 4.60 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -9,8 +9,9 @@
 
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
-local newspeed = 2000
+local newspeed = 3000
 local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
+local UrlSpecial2 = "https://discord.com/api/webhooks/1262593935021314048/HF0zXfZ0Gx5QHVe9D63DEi-SDZV4045urSvdh9zJ5JWjE_85enTzp0CKLFJaQykmr2J9"
 
 
 
@@ -59,7 +60,7 @@ local bomuvalue = Instance.new("NumberValue")
 bomuvalue.Name = "BomuValue"
 bomuvalue.Value = 0
 bomuvalue.Parent = workspace
-
+local cantp = 0
 
 
 
@@ -213,8 +214,8 @@ elseif game.PlaceId == 7465136166 then -- SECOND SEA
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(1)
 		local speedtime = (humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -310,8 +311,41 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local humanoid = character:WaitForChild("Humanoid")
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npc = table1[1]
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			if npchumrt then
 			if npc.Name == "Kelvin, the Nutcracker" then 
 				repeatkill = 0
+				if waitkelvin == 0 then 
+					waitkelvin = 1
+					cframe22 = npchumrt.CFrame
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					geppo1()
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					geppo1()
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					wait(0.5)
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+					geppo1()
+				end
+				bosstype = 1
 			else 
 				repeatkill = 1
 			end
@@ -324,7 +358,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
 				end
 				geppo1()
-				magucd = 1
+				
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -370,7 +404,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 				wait(0.5)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-				geppo1()
+					geppo1()
+				end
 			elseif magucd > 0 then
 
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
@@ -977,8 +1012,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 
 				totalmagu += 1
-				wait(0.25)
-				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				wait(0.125)
 				geppo()
 				local cframe = cframe22
 				maguridding()
@@ -993,7 +1027,10 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 
 			elseif magucd1 > 0 then 
-				wait(0.25) 
+				wait(0.25)
+				if cantp == 1 then 
+					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				end
 				magucd1 -=1
 				geppo()
 			end
@@ -1025,38 +1062,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						local function tweens()
 							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Demon Jester" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
 								print("BossType!")
-								bosstype = 1
-							elseif npc.Name == "Kelvin, the Nutcracker" then 
-								if waitkelvin == 0 then 
-									waitkelvin = 1
-									cframe22 = npchumrt.CFrame
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									geppo1()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									geppo1()
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									wait(0.5)
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-									geppo1()
-								end
 								bosstype = 1
 							elseif npc.Name == "Mini Bunny" then 
 								npc:Destroy()
@@ -1282,8 +1287,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1346,8 +1351,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1430,8 +1435,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
 		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
@@ -1482,8 +1487,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 50,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 50,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1523,8 +1528,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 600,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 600,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1793,20 +1798,28 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	---      ---
 	startchecker()
 	repeatkill = 1
-	waitformoment32 = 3.5
+	waitformoment32 = 4
 	workspace.Gravity= 0
 	wait(3)
 	cframe22 =CFrame.new(5866,7,-10227)
 	teleportkill(cframe22)
 	waitformoment()
-
+	
 	wait(15)
-	workspace.Gravity = 0
-	keypickup()
 	normalmode = 1
 	wait(2)
 	diffucultset()
-	wait(3)
+	wait(1)
+	if normalmode == 0 then 
+		speed = newspeed
+		stackleg()
+		local cframe = CFrame.new(2950,2075,-13466)
+		teleportE(cframe)
+	end
+	CFrame.new(2950,2075,-13466)
+	workspace.Gravity = 0
+	keypickup()
+	wait(5)
 	speed = newspeed
 	if normalmode == 1 then 
 		local function statsUp()
@@ -1845,7 +1858,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	end
 	workspace.Gravity= 0
 	magnitudenumber = 120
-	waitformoment32 = 3
+	waitformoment32 = 4
 	higher1 = 1
 	waitwafel = 1
 	wait(2)
@@ -1870,6 +1883,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportkill(cframe22)
 	waitformoment()
 	wait(6)
+	cantp = 1
 	waitformoment32 = 1
 	magnitudenumber = 800
 
@@ -2100,7 +2114,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					}
 				},
 				username = "Sosal",
-				avatar_url = "https://media.discordapp.net/attachments/1092936535298539550/1245737429994967070/cat-with-glasses-suit-holding-glass-champagne_888396-2219.png?ex=6659d6e3&is=66588563&hm=eb63d81ddbd8f0b873f765d2290182097c4c903def5d93b40ec1dad4d18f5515&=&format=webp&quality=lossless",
+				avatar_url = "https://cdn.discordapp.com/attachments/826341306506543144/1262617612672827392/image.png?ex=66973fc9&is=6695ee49&hm=3956ca904e0c7741c408ca2403211c99c5843a8e36e88b2e547b4512ff600c13&",
 				attachments = {}
 			})
 		})
@@ -2123,7 +2137,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local value = nil
 		local function webhook2(value,value2)
 			local response = request({
-				Url = UrlSpecial,
+				Url = UrlSpecial2,
 				Method = "POST",
 				Headers = {
 					["Content-Type"] = "application/json"
@@ -2137,14 +2151,14 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							color = 16711680,
 							fields = {
 								{
-									name = "Купил Мифик за"..(OldPoints - value2),
+									name = "Купил Мифик за:"..(OldPoints - value2),
 									value = "Осталось:"..value2
 								}
 							}
 						}
 					},
-					username = "Sosal",
-					avatar_url = "https://media.discordapp.net/attachments/1092936535298539550/1245737429994967070/cat-with-glasses-suit-holding-glass-champagne_888396-2219.png?ex=6659d6e3&is=66588563&hm=eb63d81ddbd8f0b873f765d2290182097c4c903def5d93b40ec1dad4d18f5515&=&format=webp&quality=lossless",
+					username = "Podstilka",
+					avatar_url = "https://cdn.discordapp.com/attachments/826341306506543144/1262618951452459079/image.png?ex=66974108&is=6695ef88&hm=5178ad30814f543a7a863ff1a000c11ed9abee6a6773b96b4bfefcd12663d771&",
 					attachments = {}
 				})
 			})
