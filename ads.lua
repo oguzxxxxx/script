@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 6.10 --
+-- SCRIPT VER 6.20 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -220,6 +220,22 @@ local function stackleg()
 
 	game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 end
+
+
+local function cameramove()
+	local camera = workspace.CurrentCamera
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+
+
+	local pos = Vector3.new(character.Head.Position.X,character.Head.Position.Y + 15,character.Head.Position.Z)
+	local lookAtPos = Vector3.new(character.Head.Position.X,character.Head.Position.Y,character.Head.Position.Z)
+
+	workspace.CurrentCamera.CFrame = CFrame.lookAt(pos, lookAtPos)
+end 
 
 if game.PlaceId == 1730877806 then -- LOBBY
 	wait(8 * autoexec)
@@ -1564,6 +1580,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tweens()
 	end
 	local function keyboardE()
+		cameramove()
+		wait(0.25)
 		local keycode = Enum.KeyCode.E
 		local virtualinputservice = game:GetService("VirtualInputManager")
 		virtualinputservice:SendKeyEvent(true,keycode,false,nil)
@@ -2236,9 +2254,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	local function setvariables1(webhook1)
 		local diffuculty = nil
 		if normalmode == 1 then 
-			diffuculty = "ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ"
+			diffuculty = "Нормальная"
 		else 
-			diffuculty = "ÐšÐ¾ÑˆÐ¼Ð°Ñ€"
+			diffuculty = "Кошмар"
 		end
 		local pointstotal =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 		local time1 = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("LeftContainer"):WaitForChild("Clear Time"):WaitForChild("Display").Text
@@ -2257,16 +2275,16 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				embeds = {
 					{
 						title = "Impel Down Farm",
-						description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
+						description = "Игрок ".. "||"..name.."||",
 						color = 16711680,
 						fields = {
 							{
-								name = "ÐŸÑ€Ð¾ÑˆÐµÐ» Ð·Ð° "..time1,
-								value = "Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ:"..dif
+								name = "Прошел за "..time1,
+								value = "Сложность:"..dif
 							},
 							{
-								name = "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ð» "..points,
-								value = "Ð¡ÐµÐ¹Ñ‡Ð°Ñ Ð²ÑÐµÐ³Ð¾ "..pointstotal.." Ð¾Ñ‡ÐºÐ¾Ð²"
+								name = "Получил "..points,
+								value = "Сейчас всего "..pointstotal.." очков"
 							}
 						}
 					}
@@ -2305,12 +2323,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					embeds = {
 						{
 							title = "Impel Down Farm",
-							description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
+							description = "Игрок ".. "||"..name.."||",
 							color = 16711680,
 							fields = {
 								{
-									name = "ÐšÑƒÐ¿Ð¸Ð» ÐœÐ¸Ñ„Ð¸Ðº Ð·Ð°:"..(OldPoints - value2),
-									value = "ÐžÑÑ‚Ð°Ð»Ð¾ÑÑŒ:"..value2
+									name = "Купил Мифик за:"..(OldPoints - value2),
+									value = "Осталось:"..value2
 								}
 							}
 						}
@@ -2325,7 +2343,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		if OldPoints == NewPoints then
 
 		else 
-			value = "Ð”Ð°"
+			value = "Да"
 			webhook2(value,NewPoints)
 		end
 	end
@@ -2335,3 +2353,4 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportE(cframe)
 	workspace.Gravity = 192.6
 end
+
