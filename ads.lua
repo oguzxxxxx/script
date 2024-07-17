@@ -1993,6 +1993,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local cframe = CFrame.new(2950,2075,-13466)
 		teleportE(cframe)
 	end
+	speed = 45
 	CFrame.new(2950,2075,-13466)
 	workspace.Gravity = 0
 	keypickup()
