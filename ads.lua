@@ -1662,8 +1662,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 50,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 50,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1925,6 +1925,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				teleportESpecial(cframe)
 				keypickupped = 2
 				keypickup()
+				
 
 			elseif keypickupped == 0 then
 				wait(2)
