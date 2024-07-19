@@ -10,8 +10,8 @@
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
 local newspeed = 3500
-local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
-local UrlSpecial2 = "https://discord.com/api/webhooks/1262593935021314048/HF0zXfZ0Gx5QHVe9D63DEi-SDZV4045urSvdh9zJ5JWjE_85enTzp0CKLFJaQykmr2J9"
+local UrlSpecial = "https://discord.com/api/webhooks/1263373581752991744/9yZEFsrzpyJ2mrtIk3hC-r6N_hgH3qv2N6TozrwH9paQz_HKHkQCKUo1Qv0BZF06UuD3"
+local UrlSpecial2 = "https://discord.com/api/webhooks/1263373581752991744/9yZEFsrzpyJ2mrtIk3hC-r6N_hgH3qv2N6TozrwH9paQz_HKHkQCKUo1Qv0BZF06UuD3"
 
 
 
