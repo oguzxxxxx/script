@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 6.20 --
+-- SCRIPT VER 6.30 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -10,8 +10,8 @@
 local privateserver = "S4xTUhg7G6"
 local autoexec = 1
 local newspeed = 3500
-local UrlSpecial = "https://discord.com/api/webhooks/1263373581752991744/9yZEFsrzpyJ2mrtIk3hC-r6N_hgH3qv2N6TozrwH9paQz_HKHkQCKUo1Qv0BZF06UuD3"
-local UrlSpecial2 = "https://discord.com/api/webhooks/1263373581752991744/9yZEFsrzpyJ2mrtIk3hC-r6N_hgH3qv2N6TozrwH9paQz_HKHkQCKUo1Qv0BZF06UuD3"
+local UrlSpecial = "https://discord.com/api/webhooks/1262032650479341689/fbOIp_WpGgqSrhf7kgaxhLlHVUT4K_7KOazMVK5Eopcw1--Y2zUN6drlYIoi_ffZFZaf"
+local UrlSpecial2 = "https://discord.com/api/webhooks/1262593935021314048/HF0zXfZ0Gx5QHVe9D63DEi-SDZV4045urSvdh9zJ5JWjE_85enTzp0CKLFJaQykmr2J9"
 
 
 
@@ -1216,7 +1216,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						local humanoid = character:WaitForChild("Humanoid")
 						local humrt = character:WaitForChild("HumanoidRootPart")
 						local function tweens()
-							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Demon Jester" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
+							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
 								print("BossType!")
 								bosstype = 1
 							elseif npc.Name == "Mini Bunny" then 
@@ -1273,6 +1273,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							elseif npc.Name == "Kelvin, The Nutcracker" then 
 								kelvinchecker = 1
 								bosstype = 1
+							elseif npc.Name == "Demon Jester" then 
+								bosstype = 1
+								cframe22 = npchumrt.CFrame
 							end
 							if normalmode == 1 then
 								if waitonce12 == 0 then 
