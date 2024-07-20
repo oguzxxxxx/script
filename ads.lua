@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 7.30 --
+-- SCRIPT VER 7.40 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -60,6 +60,7 @@ local cantp = 0
 local kelvinchecker = 0
 local jesterwait = 0
 local requiredwait = 0
+local stagesecond = 0
 
 
 
@@ -387,15 +388,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
-						geppo1()
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						geppo1()
-
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
@@ -403,6 +397,32 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
@@ -1601,7 +1621,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-
+				if stagesecond == 1 then 
+					basepart.CanCollide = false
+				end
 			end
 		end
 		tween:Play()
@@ -1665,7 +1687,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-
+				if stagesecond == 1 then 
+					basepart.CanCollide = false
+				end
 			end
 		end
 		tween:Play()
@@ -1750,9 +1774,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
 		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
 		local baseparts = workspace:GetDescendants()
+		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-
+				if stagesecond == 1 then 
+					basepart.CanCollide = false
+				end
 			end
 		end
 		tween:Play()
@@ -1803,9 +1830,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
 		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
 		local baseparts = workspace:GetDescendants()
+		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-
+				if stagesecond == 1 then 
+					basepart.CanCollide = false
+				end
 			end
 		end
 		tween:Play()
@@ -1844,9 +1874,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
 		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
 		local baseparts = workspace:GetDescendants()
+		local baseparts = workspace:GetDescendants()
 		for i,basepart in baseparts do 
 			if basepart:IsA("BasePart") then 
-
+				if stagesecond == 1 then 
+					basepart.CanCollide = false
+				end
 			end
 		end
 		tween:Play()
@@ -2199,7 +2232,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cantp = 1
 	waitformoment32 = 1
 	magnitudenumber = 800
-
+    stagesecond = 1
 	cframe22 = CFrame.new(3194.72216796875, 2380.4306640625, -20271.548828125) -- 3
 	teleportkill(cframe22)
 	waitformoment()
@@ -2231,6 +2264,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitformoment()
 	cframe22 = CFrame.new(3198.759521484375, 2378.380615234375, -21078.46484375) -- 12
 	teleport(cframe22)
+	stagesecond = 0
 	cframe22 = CFrame.new(4976.70849609375, 2306.330810546875, -20745.947265625) -- 13
 	teleportkill(cframe22)
 	waitformoment()
