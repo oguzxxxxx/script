@@ -2232,7 +2232,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cantp = 1
 	waitformoment32 = 1
 	magnitudenumber = 800
-    stagesecond = 1
 	cframe22 = CFrame.new(3194.72216796875, 2380.4306640625, -20271.548828125) -- 3
 	teleportkill(cframe22)
 	waitformoment()
