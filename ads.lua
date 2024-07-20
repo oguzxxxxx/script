@@ -428,7 +428,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						geppo1()
-						cframe22 = CFrame.new(npchumrt.CFrame.X + 15,npchumrt.CFrame.Y,npchumrt.CFrame.Z + 15)
+						cframe22 = CFrame.new(npchumrt.CFrame.X + 20,npchumrt.CFrame.Y,npchumrt.CFrame.Z)
 					end
 				else 
 					repeatkill = 1
