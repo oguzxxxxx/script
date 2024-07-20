@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 6.30 --
+-- SCRIPT VER 6.40 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -888,7 +888,22 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						}
 
 						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+						wait(12.75)
+						local virtualinputservice = game:GetService("VirtualInputManager")
+						virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
 						wait(0.1)
+						virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+						wait(0.25)
+						local virtualinputservice = game:GetService("VirtualInputManager")
+						virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+						wait(0.1)
+						virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+						wait(0.25)
+						local virtualinputservice = game:GetService("VirtualInputManager")
+						virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+						wait(0.1)
+						virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+						wait(0.25)
 						local virtualinputservice = game:GetService("VirtualInputManager")
 						virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
 						wait(0.1)
@@ -1928,7 +1943,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				teleportESpecial(cframe)
 				keypickupped = 2
 				keypickup()
-				
+
 
 			elseif keypickupped == 0 then
 				wait(2)
