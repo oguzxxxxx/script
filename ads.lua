@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 7.60 --
+-- SCRIPT VER 7.75 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -1315,7 +1315,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			if magucd1 == 0 then
-				magucd1 = 16	
+				magucd1 = 30	
 				humrt.CFrame = npchumrt.CFrame
 				wait(0.1)
 				local args = {
@@ -1346,10 +1346,10 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 
 			elseif magucd1 > 0 then 
-				wait(0.25)
-				if cantp == 1 then 
+				wait(0.2)
+				
 					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-				end
+				
 				magucd1 -=1
 				geppo()
 			end
@@ -1379,7 +1379,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						local humanoid = character:WaitForChild("Humanoid")
 						local humrt = character:WaitForChild("HumanoidRootPart")
 						local function tweens()
-							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
+							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
 								print("BossType!")
 								bosstype = 1
 								waitonce12 = requiredwait
@@ -1440,6 +1440,10 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 								bosstype = 1
 								jesterwait = 1
 								waitonce12 = requiredwait
+							elseif npc.Name == "Kelvin, The Nutcracker" then 
+								bosstype = 1
+								kelvinchecker = 1
+								waitonce12 = requiredwait
 							end
 							local function waitforkill()
 								if waitonce12 < requiredwait then 
@@ -1455,7 +1459,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							bomudash()
 
 							if bosstype == 1 and normalmode == 0 then
-								
+								if kelvinchecker == 0 then
 									Kill(table1,table2,"Magu",cframe1)
 									local args = {
 										[1] = true,
@@ -1465,7 +1469,17 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									geppo()
 									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 									killdecide(killthink,{},{},cframe1)
-								
+								else 
+									Kill(table1,table2,"MaguNpc1",cframe1)
+									local args = {
+										[1] = true,
+										[2] = weaponname,
+										[3] = true
+									}
+									geppo()
+									game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+									killdecide(killthink,{},{},cframe1)
+								end
 							elseif bosstype == 0 and normalmode == 1 then
 								Kill(table1,table2,"Clicks",cframe1)
 								local cframe2 = CFrame.new(humrt.CFrame.X,cframe22.Y,humrt.CFrame.Z)
