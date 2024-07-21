@@ -1095,6 +1095,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				}
 
 				maguridding2(args)
+				local cframe = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
+				createbox(cframe,0)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 				wait(0.2)
 				magucd1 -= 1 
@@ -1513,7 +1515,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 									[2] = weaponname,
 									[3] = true
 								}
-								geppo()
 								game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 								killdecide(killthink,{},{},cframe1)
 							end
@@ -2311,9 +2312,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleport(cframe22)
 	keyboardE()
 	waitformoment32 = 1.25
-	higher1 = 2
+	higher1 = 4
 	tweeningyet = 1
-	waitwafel = 2
+	waitwafel = 4
 	requiredwait = 24
 	geppo1()
 	cframe22 = CFrame.new(10022.1044921875, 1612.52490234375, -19234.732421875) -- 25
@@ -2353,9 +2354,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitformoment()
 	geppo1()
 	waitformoment32 = 1.25
-	higher1 = 2
+	higher1 = 4
 	tweeningyet = 0
-	waitwafel = 2
+	waitwafel = 4
 	
 	geppo1()
 	keyboardE()
@@ -2368,9 +2369,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitformoment()
 	geppo1()
 	waitformoment32 = 1.25
-	higher1 = 2
+	higher1 = 4
 	tweeningyet = 1
-	waitwafel = 2
+	waitwafel = 4
 	cframe22 = CFrame.new(9974.77734375, 1657.553466796875, -22141.06640625) -- 35
 	teleport(cframe22)
 	cframe22 = CFrame.new(9400.0712890625, 572.8726806640625, -27929.95703125) -- 36
