@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 7.40 --
+-- SCRIPT VER 7.50 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -44,7 +44,7 @@ local killedyet = 0
 local speed = 45 
 local keypickupped = 0
 local tweeningyet = 0
-local higher1 = 0.75
+local higher1 = 0.7
 local waitformoment32 = 1
 local repeatkill = 0
 local waitonce = 0
@@ -54,13 +54,14 @@ local magucd1 = 0
 local waitonce12 = 0
 local weaponname = "BlackLeg"
 local waitkelvin = 0
-local waitwafel = 1
+local waitwafel = 0.7
 local waitblugori = 0
 local cantp = 0
 local kelvinchecker = 0
 local jesterwait = 0
 local requiredwait = 0
 local stagesecond = 0
+local magmahigher = 0.7
 
 
 
@@ -383,7 +384,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					repeatkill = 0
 					if waitkelvin == 0 then 
 						waitkelvin = 1
-						geppo1()
+						
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
@@ -427,8 +428,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
-						geppo1()
-						cframe22 = CFrame.new(npchumrt.CFrame.X + 20,npchumrt.CFrame.Y,npchumrt.CFrame.Z)
+						
+						cframe22 = CFrame.new(npchumrt.CFrame.X + 21,npchumrt.CFrame.Y,npchumrt.CFrame.Z)
 					end
 				else 
 					repeatkill = 1
@@ -1067,7 +1068,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * magmahigher,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1121,7 +1122,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * magmahigher,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1214,7 +1215,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * magmahigher,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -2203,8 +2204,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	workspace.Gravity= 0
 	magnitudenumber = 120
 	waitformoment32 = 4
-	higher1 = 1
-	waitwafel = 1
+	higher1 = 0.9
+	waitwafel = 0.9
+	magmahigher = 0.9
 	wait(2)
 	if normalmode == 1 then
 
@@ -2232,6 +2234,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cantp = 1
 	waitformoment32 = 1
 	magnitudenumber = 800
+    stagesecond = 0
 	cframe22 = CFrame.new(3194.72216796875, 2380.4306640625, -20271.548828125) -- 3
 	teleportkill(cframe22)
 	waitformoment()
@@ -2527,3 +2530,4 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleportE(cframe)
 	workspace.Gravity = 192.6
 end
+
