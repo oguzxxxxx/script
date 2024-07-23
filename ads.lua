@@ -2082,8 +2082,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 150,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 150,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
 		wait(0.5)
 		local magnitude =(humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -2207,6 +2207,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 
 	end
 	local function dropping()
+    wait(1.5)
 	workspace.Gravity = 0
 		local cframe = CFrame.new(20000, 25.836013793945312, 0)
 	teleportDrop(cframe)
@@ -2217,7 +2218,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		}
 
 		game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-		wait(1)
+		wait(1.5)
 		local function equip()
 			local player = game.Players.LocalPlayer
 			local name = player.Name
@@ -2325,7 +2326,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			end
 		end
 		equip()
-		wait(1)
+		wait(1.5)
 		local args = {
 			[1] = "drop",
 			[2] = game:GetService("Players").LocalPlayer.Character.Magu
