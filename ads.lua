@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 7.75 --
+-- SCRIPT VER 8.20 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -28,6 +28,7 @@ local humanoid = character:WaitForChild("Humanoid")
 local humrt = character:WaitForChild("HumanoidRootPart")
 local tweenservice = game:GetService("TweenService")
 local replicatedstorage = game:GetService("ReplicatedStorage")
+local virtualinputservice = game:GetService("VirtualInputManager")
 
 
 
@@ -62,6 +63,9 @@ local jesterwait = 0
 local requiredwait = 0
 local stagesecond = 0
 local magmahigher = 1
+local tpchecker = 0
+local remevent = nil
+local checkedforstart = 0
 
 
 
@@ -164,21 +168,43 @@ local function maguridding()
 	local name = player.Name
 	local replicatedstorage = game:GetService("ReplicatedStorage"):GetChildren()
 	if #replicatedstorage == 0 then 
-		print("No here")
+		
 	end
 	for i,replicatedevent in replicatedstorage do 
 		if replicatedevent.Name == name.."|ServerScriptService.Skills.Skills.SkillContainer.Magu-Magu.Magma Swamp" then 
 			if replicatedevent:IsA("RemoteFunction") then
-				print("Remote")
-				replicatedevent:InvokeServer()
+				
+				remevent = replicatedevent
 			else
-				print("Not remote")
+				
 			end
 		else 
-			print("Not finded remote")
+			
 		end 					
 	end		
-	geppo1()
+
+end
+
+local function maguriddingsure()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local replicatedstorage = game:GetService("ReplicatedStorage"):GetChildren()
+	if #replicatedstorage == 0 then 
+	
+	end
+	for i,replicatedevent in replicatedstorage do 
+		if replicatedevent.Name == name.."|ServerScriptService.Skills.Skills.SkillContainer.Magu-Magu.Magma Swamp" then 
+			if replicatedevent:IsA("RemoteFunction") then
+			
+				replicatedevent:InvokeServer()
+			else
+				
+			end
+		else 
+			
+		end 					
+	end		
+
 end
 
 local function maguridding1(args)
@@ -186,21 +212,21 @@ local function maguridding1(args)
 	local name = player.Name
 	local replicatedstorage = game:GetService("ReplicatedStorage"):GetChildren()
 	if #replicatedstorage == 0 then 
-		print("No here")
+
 	end
 	for i,replicatedevent in replicatedstorage do 
 		if replicatedevent.Name == name.."|ServerScriptService.Skills.Skills.SkillContainer.Magu-Magu.Magma Fist" then 
 			if replicatedevent:IsA("RemoteFunction") then
-				print("Remote")
+			
 				replicatedevent:InvokeServer(unpack(args))
 			else
-				print("Not remote")
+				
 			end
 		else 
-			print("Not finded remote")
+			
 		end 					
 	end		
-	geppo1()
+
 end
 
 local function maguridding2(args)
@@ -208,21 +234,21 @@ local function maguridding2(args)
 	local name = player.Name
 	local replicatedstorage = game:GetService("ReplicatedStorage"):GetChildren()
 	if #replicatedstorage == 0 then 
-		print("No here")
+		
 	end
 	for i,replicatedevent in replicatedstorage do 
 		if replicatedevent.Name == name.."|ServerScriptService.Skills.Skills.SkillContainer.Magu-Magu.Magma Hound" then 
 			if replicatedevent:IsA("RemoteFunction") then
-				print("Remote")
+				
 				replicatedevent:InvokeServer(unpack(args))
 			else
-				print("Not remote")
+				
 			end
 		else 
-			print("Not finded remote")
+			
 		end 					
 	end		
-	geppo1()
+
 end 
 
 local function stackleg()
@@ -314,7 +340,59 @@ elseif game.PlaceId == 7465136166 then -- SECOND SEA
 	wait(random)
 	game:GetService("TeleportService"):Teleport(1730877806, player)
 elseif game.PlaceId == 11424731604 then-- IMPEL FARM
-	wait(15 * autoexec)
+	wait(9 * autoexec)
+	local function startchecker0()
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local cframe = CFrame.new(5971,7,-10139)
+		local startx = cframe.X
+		local starty = cframe.Y 
+		local startz = cframe.Z
+		local numberrangex =NumberRange.new(startx - 200,startx + 200)
+		local numberrangey =NumberRange.new(starty - 200,starty + 200)
+		local numberrangez =NumberRange.new(startz - 200,startz + 200)
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		local checkerx = 0 
+		local checkery = 0
+		local checkerz = 0
+		local function checks() 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humrt = character.HumanoidRootPart
+			local currentx = humrt.CFrame.X
+			local currenty = humrt.CFrame.Y
+			local currentz = humrt.CFrame.Z
+			if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+			else 
+				checkerx = 1
+			end
+			if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+			else 
+				checkery = 1
+			end
+			if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+			else 
+				checkerz = 1
+			end
+			if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+				tpchecker = 0
+			else
+				tpchecker = 1
+			end
+		end
+		checks()
+	end
 	local function startchecker()
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -360,12 +438,13 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				checkerz = 1
 			end
 			if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-				print("Checks end")
+
+				checkedforstart = 1
 			else
-				print("Still Checking")
+			
 				wait(1)
 
-				checks()
+				
 			end
 		end
 		checks()
@@ -379,72 +458,27 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npc = table1[1]
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			if npchumrt then
-				if npc.Name == "Kelvin, The Nutcracker" then 
-					repeatkill = 0
-					if waitkelvin == 0 then 
-						waitkelvin = 1
-						
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						geppo1()
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						geppo1()
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						geppo1()
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-						wait(0.5)
-						
-						cframe22 = CFrame.new(npchumrt.CFrame.X + 21,npchumrt.CFrame.Y,npchumrt.CFrame.Z)
-					end
-				else 
+			if npchumrt then		
 					repeatkill = 1
-				end
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				if magucd == 0 then
+					maguridding()
+					if remevent == nil then 
+						
+					else 
+					
+					remevent:InvokeServer()
+					remevent = nil
+					end
 					magucd = 8
 					if npc.Name == "Elo The Bunny" then
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 12,cframe22.Z)
 					else 
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 5,cframe22.Z)
 					end
-					geppo1()
-
+		
+                    geppo()
 					local args = {
 						[1] = false,
 						[2] = weaponname
@@ -458,7 +492,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 					totalmagu += 1
 					wait(0.25)
-					geppo1()
+				
 					local cframe = cframe22
 					createbox(cframe,30 * higher1)
 					wait(0.45)
@@ -467,7 +501,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						[2] = weaponname,
 						[3] = true
 					}
-					geppo1()
+		
 					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 				elseif magucd > 0 then 
 					magucd -= 1 
@@ -1187,7 +1221,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				geppo()
 				magucd1 -= 1
 				local cframe = cframe22
-				maguridding()
+				maguriddingsure()
 				createbox(cframe,30 * higher1)
 				wait(0.2)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
@@ -1280,7 +1314,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				geppo()
 				magucd1 -= 1
 				local cframe = cframe22
-				maguridding()
+				maguriddingsure()
 				createbox(cframe,30 * higher1)
 				wait(0.2)
 				humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
@@ -1362,7 +1396,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		local npc = table1[1]
-		print(npc)
+
 		if npc == nil then 
 			killthink("H/D Nil!")
 		end
@@ -1379,8 +1413,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						local humanoid = character:WaitForChild("Humanoid")
 						local humrt = character:WaitForChild("HumanoidRootPart")
 						local function tweens()
-							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
-								print("BossType!")
+							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
+							
 								bosstype = 1
 								waitonce12 = requiredwait
 							elseif npc.Name == "Mini Bunny" then 
@@ -1439,10 +1473,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							elseif npc.Name == "Demon Jester" then 
 								bosstype = 1
 								jesterwait = 1
-								waitonce12 = requiredwait
-							elseif npc.Name == "Kelvin, The Nutcracker" then 
-								bosstype = 1
-								kelvinchecker = 1
 								waitonce12 = requiredwait
 							end
 							local function waitforkill()
@@ -1539,7 +1569,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				end
 			end
 		end
-		killthink("H/D Nil!")
+		if npc == nil then 
+			killthink("H/D Nil!")
+		end
 	end
 	local function killdecide(killthink,table1,table2,cframe1)
 		local player = game.Players.LocalPlayer
@@ -1589,31 +1621,39 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		local table1 = {}
 		local table2 = {}
 		if reason == "Start" then 
-			print("Starting Think")
+
 			thinktime = 0
 			killdecide(killthink,table1,table2,cframe1)
 		elseif reason == "Not Finded" then 
 			if thinktime < 6 then
+				remevent = nil
+				maguriddingsure()
 				wait(0.25)
 				thinktime += 1
 
 				killdecide(killthink,table1,table2,cframe1)
 			else
-				print("Not Finded NPCS!")
+				remevent = nil
+				maguriddingsure()
 				killedyet = 1
 			end
 		elseif reason == "H/D Nil!" then 
 			if thinktime < 6 then
+				remevent = nil
+				maguriddingsure()
 				wait(0.25)
 
 				thinktime += 1
 				killdecide(killthink,table1,table2,cframe1)
 			else
-				print("Health Or Distance Nil!")
+				remevent = nil
+				maguriddingsure()
 				killedyet = 1
 
 			end
 		else 
+			remevent = nil
+			maguriddingsure()
 			killedyet = 1
 
 
@@ -1764,7 +1804,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	local function waitformoment()
 		repeat
 			wait(0.125)
-			print("Waiting")
+			
 		until killedyet == 1
 		killedyet = 0
 		jesterwait = 0
@@ -1774,9 +1814,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		waitonce = 0
 		waitonce12 = 0
 		magucd1 = 0
-		maguridding()
 
-		print("Done")
+
 	end
 	local function teleportE(cframe)
 		local player = game.Players.LocalPlayer
@@ -2037,6 +2076,44 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		tween.Completed:Connect(tweencomplete)
 		tweens()
 	end
+	local function teleportDrop(cframe)
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 150,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 150,humrt.CFrame.Z)
+		wait(0.5)
+		local magnitude =(humrt.Position - newcframe.Position).magnitude
+		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
+		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+		local baseparts = workspace:GetDescendants()
+		local baseparts = workspace:GetDescendants()
+		for i,basepart in baseparts do 
+			if basepart:IsA("BasePart") then 
+				if stagesecond == 1 then 
+					basepart.CanCollide = false
+				end
+			end
+		end
+		tween:Play()
+		local function tweens()
+			if teleportedyet == 0 then 
+				geppo()
+				wait(0.25)
+				tweens()
+			else 
+				teleportedyet = 0
+				humrt.CFrame =CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
+			end
+		end
+		local function tweencomplete()
+			teleportedyet = 1
+		end
+		tween.Completed:Connect(tweencomplete)
+		tweens()
+	end
 	local function diffucultset()
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -2129,6 +2206,152 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		end
 
 	end
+	local function dropping()
+	workspace.Gravity = 0
+		local cframe = CFrame.new(20000, 25.836013793945312, 0)
+	teleportDrop(cframe)
+	workspace.Gravity = 192.6
+		local args = {
+			[1] = "equip",
+			[2] = "Magu"
+		}
+
+		game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
+		wait(1)
+		local function equip()
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local bar1 = player.PlayerGui.BackpackGui.Hotbar.One:GetChildren()
+			for i,item in bar1 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.One
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar2 = player.PlayerGui.BackpackGui.Hotbar.Two:GetChildren()
+			for i,item in bar2 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Two
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar3 = player.PlayerGui.BackpackGui.Hotbar.Three:GetChildren()
+			for i,item in bar3 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Three
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar4 = player.PlayerGui.BackpackGui.Hotbar.Four:GetChildren()
+			for i,item in bar4 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Four
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar5 = player.PlayerGui.BackpackGui.Hotbar.Five:GetChildren()
+			for i,item in bar5 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Five
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar6 = player.PlayerGui.BackpackGui.Hotbar.Six:GetChildren()
+			for i,item in bar6 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Six
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar7 = player.PlayerGui.BackpackGui.Hotbar.Seven:GetChildren()
+			for i,item in bar7 do 
+				if item.Name == "Magu" then  
+					local keycode = Enum.KeyCode.Seven
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar8 = player.PlayerGui.BackpackGui.Hotbar.Eight:GetChildren()
+			for i,item in bar8 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Eight
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar9 = player.PlayerGui.BackpackGui.Hotbar.Nine:GetChildren()
+			for i,item in bar9 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Nine
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+		end
+		equip()
+		wait(1)
+		local args = {
+			[1] = "drop",
+			[2] = game:GetService("Players").LocalPlayer.Character.Magu
+		}
+
+		game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
+		
+	end
+	local function waitforimpel()
+		if checkedforstart == 0 then
+		local frame = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("DiffChooser")
+		if frame then
+			checkedforstart = 1
+			wait(1.5)
+			local args = {
+				[1] = "Nightmare"
+			}
+
+			game:GetService("Players").LocalPlayer.PlayerGui.DiffChooser.Replication.RemoteEvent:FireServer(unpack(args))
+		else
+				wait(1)
+			startchecker()
+			waitforimpel()
+			end
+		end
+	end
 	---      ---
 
 
@@ -2156,65 +2379,196 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 
 
 	---      ---
-	startchecker()
+	speed = newspeed
+    waitforimpel()	
 	repeatkill = 1
 	waitformoment32 = 4
 	workspace.Gravity= 0
-	wait(3)
+	wait(25)
+	dropping()
+	
+	workspace.Gravity= 0
 	cframe22 =CFrame.new(5866,7,-10227)
 	teleportkill(cframe22)
 	waitformoment()
-	wait(15)
 	normalmode = 1
-	wait(2)
-	diffucultset()
-	wait(1)
-	if normalmode == 0 then 
+	wait(20)
+    diffucultset()
+	startchecker0()
+	if tpchecker == 0 then 
 		speed = newspeed
-		stackleg()
 		local cframe = CFrame.new(2950,2075,-13466)
 		teleportE(cframe)
 	end
-	speed = 45
-	CFrame.new(2950,2075,-13466)
+	
+	wait(1)
+	speed = 45 
 	workspace.Gravity = 0
 	keypickup()
-	wait(5)
+	wait(3)
+	if normalmode == 1 then
+		normalmode = 0
+	local args = {
+		[1] = "BlackLeg"
+	}
+
+	game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
+	wait(1)
+	local fun1 = "FightingStyleMastery"
+	local fun2 = nil
+	local fun3 = 30
+	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	workspace.Gravity = 192.6
+	stackleg()
+	stackleg()
+	stackleg()
+	stackleg()
+	stackleg()
+	stackleg()
+	stackleg()
+	workspace.Gravity = 0
 	speed = newspeed
-	if normalmode == 1 then 
+	local cframe = CFrame.new(20000, 25.836013793945312, 0)
+	teleportDrop(cframe)
+	workspace.Gravity = 192.6
+	wait(3)
+	keyboardE()
+	wait(1)
+	
 		local function statsUp()
-			local args = {
-				[1] = "BlackLeg"
-			}
-
-			game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
-			local args = {
-				[1] = "BlackLeg"
-			}
-
-			game:GetService("ReplicatedStorage").Events.learnSkill:FireServer(unpack(args))
-			wait(2)
-
-			wait(0.05)
-			local fun1 = "FightingStyleMastery"
-			local fun2 = nil
-			local fun3 = 30
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 			wait(0.05)
 			local fun1 = "Defense"
 			local fun2 = nil
-			local fun3 = 495
-			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+			local fun3 = 200
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		    local fun1 = "Stamina"
+		    local fun2 = nil
+		    local fun3 = 150
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 			wait(0.05)
-			local fun1 = "Strength"
+			local fun1 = "DevilFruitMastery"
 			local fun2 = nil
-			local fun3 = 600
+			local fun3 = 745
 			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 
+	end
+	
+	local function eatmagu()
+		local function equip()
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local bar1 = player.PlayerGui.BackpackGui.Hotbar.One:GetChildren()
+			for i,item in bar1 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.One
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar2 = player.PlayerGui.BackpackGui.Hotbar.Two:GetChildren()
+			for i,item in bar2 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Two
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar3 = player.PlayerGui.BackpackGui.Hotbar.Three:GetChildren()
+			for i,item in bar3 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Three
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar4 = player.PlayerGui.BackpackGui.Hotbar.Four:GetChildren()
+			for i,item in bar4 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Four
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar5 = player.PlayerGui.BackpackGui.Hotbar.Five:GetChildren()
+			for i,item in bar5 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Five
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar6 = player.PlayerGui.BackpackGui.Hotbar.Six:GetChildren()
+			for i,item in bar6 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Six
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar7 = player.PlayerGui.BackpackGui.Hotbar.Seven:GetChildren()
+			for i,item in bar7 do 
+				if item.Name == "Magu" then  
+					local keycode = Enum.KeyCode.Seven
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar8 = player.PlayerGui.BackpackGui.Hotbar.Eight:GetChildren()
+			for i,item in bar8 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Eight
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
+			local bar9 = player.PlayerGui.BackpackGui.Hotbar.Nine:GetChildren()
+			for i,item in bar9 do 
+				if item.Name == "Magu" then 
+					local keycode = Enum.KeyCode.Nine
+					local virtualinputservice = game:GetService("VirtualInputManager")
+					virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+					wait(0.1)
+					virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+				end
+			end
 		end
+		equip()
+		wait(0.5)
+		virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+		wait(0.1)
+		virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+		wait(12)
+	end
+	eatmagu()
 		statsUp()
-	else
-		bomuvalue = 1
 	end
 	workspace.Gravity= 0
 	magnitudenumber = 120
@@ -2222,15 +2576,68 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	higher1 = 0.9
 	waitwafel = 0.9
 	magmahigher = 0.9
+	speed = newspeed
 	wait(2)
-	if normalmode == 1 then
-
-		stackleg()
-		stackleg()
-		stackleg()
-		stackleg()
-		stackleg()
-	end
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
+	geppo1()
 	requiredwait = 10
 	cframe22 = CFrame.new(2943.087890625, 2129.49365234375, -13818.97265625) -- 1.1
 	teleportE(cframe22)
