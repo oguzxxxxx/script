@@ -4,7 +4,7 @@ local idmain =  7465136166
 local idlobby = 1730877806
 -----                   -----
 local privatecode = "S4xTUhg7G6"
-local autoexec = 1
+local autoexec = 0
 -----                   -----
 local changingspeed = 3500
 local webhookchest = "https://discord.com/api/webhooks/1266038978801307692/N9fhmZlx_JU2LF1Hu_DKew8V7VMcfP86SiJCzGW2e7qfwYVBWAfQjQ0uyNQT1mnEJrxy"
@@ -1207,6 +1207,12 @@ local function startScript()
 				local humrt = character:WaitForChild("HumanoidRootPart")
 				humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+1500,humrt.CFrame.Z)
 				wait(0.5)
+				teleportE(CFrame.new(20000, 1.836013793945312, 0))
+				keyboardE()
+                                wait(3)
+				teleportE(CFrame.new(20000, 1.836013793945312, 0))
+				keyboardE()
+                                wait(3)
 				teleportE(CFrame.new(20000, 1.836013793945312, 0))
 				keyboardE()
 				wait(3)
