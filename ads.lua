@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.05-----
+-----SCRIPT-VERSION-1.06-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -107,6 +107,8 @@ local higher = 0
 local nightmare = 0
 local djcount = 0
 local droppingornot = 0
+local onspot = 0
+local onspotcounter = 0
 -----                   -----
 local function createbox(height2)
 	local cframenew = CFrame.new(cframe.X,cframe.Y + (height2),cframe.Z)
@@ -214,24 +216,24 @@ local function impelchecker()
 end
 local function diffucultselecter()
 
-		if startbegin == 0 then
-			local frame = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("DiffChooser")
-			if frame then
-				startbegin = 1
-				wait(1.5)
-				local args = {
-					[1] = "Nightmare"
-				}
+	if startbegin == 0 then
+		local frame = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("DiffChooser")
+		if frame then
+			startbegin = 1
+			wait(1.5)
+			local args = {
+				[1] = "Nightmare"
+			}
 
-				game:GetService("Players").LocalPlayer.PlayerGui.DiffChooser.Replication.RemoteEvent:FireServer(unpack(args))
-			else
-		
+			game:GetService("Players").LocalPlayer.PlayerGui.DiffChooser.Replication.RemoteEvent:FireServer(unpack(args))
+		else
+
 			impelchecker()
 			wait(1)
 			diffucultselecter()
-			end
 		end
-	
+	end
+
 end
 local function geppo()
 	if djcount < 3 then
@@ -248,10 +250,10 @@ local function geppo()
 	end
 end
 local function stack()
-	
+
 end
 local function stack2()
-	
+
 end
 local function kill(method,npc)
 	if method == nil then 
@@ -411,7 +413,7 @@ local function kill(method,npc)
 
 		game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
 		wait(2.5)
-		end
+	end
 end
 local function killdecide(killthink)
 	local player = game.Players.LocalPlayer
@@ -421,7 +423,7 @@ local function killdecide(killthink)
 	local humrt = character:WaitForChild("HumanoidRootPart")
 	local npc = currentnpc
 	if npc == nil then 
-		
+
 	else 
 		local method = nil
 		if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Kramprus" or npc.Name == "Blugori"  then
@@ -480,7 +482,7 @@ local function killthink()
 	local humanoid = character:WaitForChild("Humanoid")
 	local humrt = character:WaitForChild("HumanoidRootPart")
 	local npcs = workspace:WaitForChild("NPCs"):GetChildren()
-	
+
 	currentnpc = nil
 	findednpc = 0
 	if #npcs > 0 then 
@@ -495,35 +497,95 @@ local function killthink()
 					local magnitude = (magnitudecframe1.Position - magnitudecframe2.Position).magnitude
 					if magnitude <= magnitudenumber then 
 						findednpc = 1
-						waitingcount = 19
+						waitingcount = waitingspot
 						currentnpc = npc
 					else 
-						
-						
+
+
 					end
-				   else
-					
-					
+				else
+
+
 				end
 			else 
-				
+
 			end
 		end
 	else
-		
-		
+
+
 	end
 	if findednpc == 1 then 
 		killdecide(killthink)
 	else 
 		if waitingcount >= waitingspot then
-killedyet = 1
+			killedyet = 1
 		else
 			wait(0.125)
 			waitingcount += 1
 			killthink()
 		end
 	end
+end
+local function spotchecker()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 5.5,startx + 5.5)
+	local numberrangey =NumberRange.new(starty - 5.5,starty + 5.5)
+	local numberrangez =NumberRange.new(startz - 5.5,startz + 5.5)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		wait(0.5)
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+			if onspotcounter == 3 then 
+				
+			else 
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
+				onspotcounter += 1
+				spotchecker()
+			end
+		else
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
+			onspotcounter = 0
+			spotchecker()
+		end
+	end
+	checks()
 end
 local function teleportkill(cframe1)
 	cframe = cframe1
@@ -547,8 +609,9 @@ local function teleportkill(cframe1)
 			stack2()
 			ontweening()
 		else 
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+20,cframe.Z)
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+15,cframe.Z)
 			workspace.Gravity = 192.6
+			spotchecker()
 			killthink()
 		end
 	end
@@ -599,7 +662,7 @@ local function teleport(cframe1)
 			stack2()
 			ontweening()
 		else 
-			height = 5
+			height = 3
 			createbox(height)
 			teleportedyet = 1
 		end
@@ -636,7 +699,7 @@ local function cameramove()
 end 
 local function keyboardE()
 	cameramove()
-	wait(1.25)
+	wait(0.25)
 	local keycode = Enum.KeyCode.E
 	local virtualinputservice = game:GetService("VirtualInputManager")
 	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
@@ -668,6 +731,7 @@ local function teleportE(cframe1)
 		else 
 			height = 3
 			createbox(height)
+			spotchecker()
 			wait(1)
 			keyboardE()
 			keyboardE()
@@ -686,7 +750,7 @@ local function teleportE(cframe1)
 		else 
 			tweeningyet = 1
 			teleportedyet = 0
-		
+
 		end
 	end
 	waitforcomplete()
@@ -740,7 +804,7 @@ local function startchecker0()
 			local cframe = CFrame.new(2950,2075,-13466)
 			teleportE(cframe)
 		else
-		
+
 		end
 	end
 	checks()
@@ -877,52 +941,52 @@ local function statsup()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 end
 local function teleportESpecial(cframe1)
-		cframe = cframe1
-		workspace.Gravity = 0
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		local magnitude = (humrt.Position - cframe.Position).magnitude
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+30,humrt.CFrame.Z)
-		local newcframe = CFrame.new(cframe.X,cframe.Y+30,cframe.Z)
-		local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
-		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
-		local function tweencomplete()
-			tweeningyet = 0
+	cframe = cframe1
+	workspace.Gravity = 0
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	local magnitude = (humrt.Position - cframe.Position).magnitude
+	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+30,humrt.CFrame.Z)
+	local newcframe = CFrame.new(cframe.X,cframe.Y+30,cframe.Z)
+	local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
+	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+	local function tweencomplete()
+		tweeningyet = 0
+
+	end
+	local function ontweening()
+		if tweeningyet == 1 then 
+			wait(0.125)
+			stack2()
+			ontweening()
+		else 
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y,cframe.Z)
+			height = 2
+			createbox(height)
+			wait(1)
+			keyboardE()
+			teleportedyet = 1
+		end
+	end
+	tween:Play()
+	tween.Completed:Connect(tweencomplete)
+	ontweening()
+	local function waitforcomplete()
+		print("Wait")
+		if teleportedyet == 0 then
+			wait(0.125)
+			stack2()
+			waitforcomplete()
+		else 
+			tweeningyet = 1
+			teleportedyet = 0
 
 		end
-		local function ontweening()
-			if tweeningyet == 1 then 
-				wait(0.125)
-				stack2()
-				ontweening()
-			else 
-				humrt.CFrame = CFrame.new(cframe.X,cframe.Y,cframe.Z)
-				height = 2
-				createbox(height)
-				wait(1)
-				keyboardE()
-				teleportedyet = 1
-			end
-		end
-		tween:Play()
-		tween.Completed:Connect(tweencomplete)
-		ontweening()
-		local function waitforcomplete()
-			print("Wait")
-			if teleportedyet == 0 then
-				wait(0.125)
-				stack2()
-				waitforcomplete()
-			else 
-				tweeningyet = 1
-				teleportedyet = 0
-
-			end
-		end
-		waitforcomplete()
+	end
+	waitforcomplete()
 end
 local function keypickup()
 	local keychecker = workspace.Effects:FindFirstChild("Key")
@@ -1071,7 +1135,7 @@ local function startcheckerBuddha()
 			checkerz = 1
 		end
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-		droppingornot = 1
+			droppingornot = 1
 		else
 
 		end
@@ -1089,7 +1153,7 @@ local function dropping()
 			wait(2)
 			teleportbuddha()
 		else 
-			
+
 		end
 
 	end
@@ -1312,11 +1376,11 @@ local function startScript()
 				local OldPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 				local function setvariables1(webhook1)
 					local diffuculty = nil
-                    if nightmare == 0 then
-					diffuculty = "Кошмар"
-else
-					diffuculty = "Кошмар+"
-end
+					if nightmare == 0 then
+						diffuculty = "Кошмар"
+					else
+						diffuculty = "Кошмар+"
+					end
 					local pointstotal =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 					local time1 = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("LeftContainer"):WaitForChild("Clear Time"):WaitForChild("Display").Text
 					local points = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("RightContainer"):WaitForChild("Total Score"):WaitForChild("Display").Text
@@ -1418,7 +1482,7 @@ end
 			end
 		end
 		functionlauncer()
-		
+
 	end
 end
 startScript()
