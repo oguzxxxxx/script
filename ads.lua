@@ -4,7 +4,7 @@ local idmain =  7465136166
 local idlobby = 1730877806
 -----                   -----
 local privatecode = "S4xTUhg7G6"
-local autoexec = 0
+local autoexec = 1
 -----                   -----
 local changingspeed = 3500
 local webhookchest = "https://discord.com/api/webhooks/1266038978801307692/N9fhmZlx_JU2LF1Hu_DKew8V7VMcfP86SiJCzGW2e7qfwYVBWAfQjQ0uyNQT1mnEJrxy"
