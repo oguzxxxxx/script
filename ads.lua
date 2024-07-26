@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.04-----
+-----SCRIPT-VERSION-1.05-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -410,7 +410,7 @@ local function kill(method,npc)
 		}
 
 		game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
-		wait(2)
+		wait(2.5)
 		end
 end
 local function killdecide(killthink)
@@ -669,6 +669,7 @@ local function teleportE(cframe1)
 			height = 3
 			createbox(height)
 			wait(1)
+			keyboardE()
 			keyboardE()
 			teleportedyet = 1
 		end
