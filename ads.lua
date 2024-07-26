@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.00-----
+-----SCRIPT-VERSION-1.04-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -106,6 +106,7 @@ local valuefruit = 1095
 local higher = 0
 local nightmare = 0
 local djcount = 0
+local droppingornot = 0
 -----                   -----
 local function createbox(height2)
 	local cframenew = CFrame.new(cframe.X,cframe.Y + (height2),cframe.Z)
@@ -233,7 +234,7 @@ local function diffucultselecter()
 	
 end
 local function geppo()
-	if djcount < 4 then
+	if djcount < 3 then
 		djcount += 1
 	else
 		djcount = 0
@@ -423,9 +424,9 @@ local function killdecide(killthink)
 		
 	else 
 		local method = nil
-		if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Ba'al" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Kramprus" or npc.Name == "Demon Jester" or npc.Name == "Blugori"  then
+		if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Kramprus" or npc.Name == "Blugori"  then
 			method = "Boss"
-			higher = 600
+			higher = 350
 		elseif npc.Name == "Mini Bunny" then
 			npc:Destroy()
 		elseif npc.Name == "Vera" then
@@ -433,9 +434,10 @@ local function killdecide(killthink)
 		elseif npc.Name == "Kramprus" then 
 			method = "Boss"
 			krampuscheck = 1.5
+			higher = 450
 		elseif npc.Name == "Demon Jester" or npc.Name == "Ba'al" then 
 			method = "Boss"
-			higher = 600
+			higher = 100
 		elseif npc.Name == "Warden of Impel Down, Vera" then 
 			method = "Boss"
 			higher = 225
@@ -687,135 +689,6 @@ local function teleportE(cframe1)
 		end
 	end
 	waitforcomplete()
-end
-local function dropping()
-	workspace.Gravity = 0
-    cframe = CFrame.new(20000, 1.836013793945312, 0)
-	teleport(cframe)
-	wait(2)
-	workspace.Gravity = 192.6
-	local args = {
-		[1] = "equip",
-		[2] = "Buddha"
-	}
-
-	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-	wait(2)
-	local function equip()
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		local bar1 = player.PlayerGui.BackpackGui.Hotbar.One:GetChildren()
-		for i,item in bar1 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.One
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar2 = player.PlayerGui.BackpackGui.Hotbar.Two:GetChildren()
-		for i,item in bar2 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Two
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar3 = player.PlayerGui.BackpackGui.Hotbar.Three:GetChildren()
-		for i,item in bar3 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Three
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar4 = player.PlayerGui.BackpackGui.Hotbar.Four:GetChildren()
-		for i,item in bar4 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Four
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar5 = player.PlayerGui.BackpackGui.Hotbar.Five:GetChildren()
-		for i,item in bar5 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Five
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar6 = player.PlayerGui.BackpackGui.Hotbar.Six:GetChildren()
-		for i,item in bar6 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Six
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar7 = player.PlayerGui.BackpackGui.Hotbar.Seven:GetChildren()
-		for i,item in bar7 do 
-			if item.Name == "Buddha" then  
-				local keycode = Enum.KeyCode.Seven
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar8 = player.PlayerGui.BackpackGui.Hotbar.Eight:GetChildren()
-		for i,item in bar8 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Eight
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-		local bar9 = player.PlayerGui.BackpackGui.Hotbar.Nine:GetChildren()
-		for i,item in bar9 do 
-			if item.Name == "Buddha" then 
-				local keycode = Enum.KeyCode.Nine
-				local virtualinputservice = game:GetService("VirtualInputManager")
-				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-				wait(0.1)
-				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-
-			end
-		end
-	end
-	equip()
-	wait(2)
-	local args = {
-		[1] = "drop",
-		[2] = game:GetService("Players").LocalPlayer.Character.Buddha
-	}
-
-	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-   wait(2)
 end
 local function startchecker0()
 	local player = game.Players.LocalPlayer
@@ -1152,8 +1025,198 @@ local function diffucultchecker()
 		wait(40)
 	end
 end
+local function startcheckerBuddha()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local cframe = CFrame.new(20000, 1.836013793945312, 0)
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 10,startx + 10)
+	local numberrangey =NumberRange.new(starty - 10,starty + 10)
+	local numberrangez =NumberRange.new(startz - 10,startz + 10)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
 
 
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+		droppingornot = 1
+		else
+
+		end
+	end
+	checks()
+end
+local function dropping()
+	workspace.Gravity = 0
+	local function teleportbuddha()
+		if droppingornot == 0 then 
+			startcheckerBuddha()
+			cframe = CFrame.new(20000, 1.836013793945312, 0)
+			teleport(cframe)
+			workspace.Gravity = 192.6
+			wait(2)
+			teleportbuddha()
+		else 
+			
+		end
+
+	end
+	wait(1)
+	teleportbuddha()
+	local args = {
+		[1] = "equip",
+		[2] = "Buddha"
+	}
+
+	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
+	wait(2)
+	local function equip()
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local bar1 = player.PlayerGui.BackpackGui.Hotbar.One:GetChildren()
+		for i,item in bar1 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.One
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar2 = player.PlayerGui.BackpackGui.Hotbar.Two:GetChildren()
+		for i,item in bar2 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Two
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar3 = player.PlayerGui.BackpackGui.Hotbar.Three:GetChildren()
+		for i,item in bar3 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Three
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar4 = player.PlayerGui.BackpackGui.Hotbar.Four:GetChildren()
+		for i,item in bar4 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Four
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar5 = player.PlayerGui.BackpackGui.Hotbar.Five:GetChildren()
+		for i,item in bar5 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Five
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar6 = player.PlayerGui.BackpackGui.Hotbar.Six:GetChildren()
+		for i,item in bar6 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Six
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar7 = player.PlayerGui.BackpackGui.Hotbar.Seven:GetChildren()
+		for i,item in bar7 do 
+			if item.Name == "Buddha" then  
+				local keycode = Enum.KeyCode.Seven
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar8 = player.PlayerGui.BackpackGui.Hotbar.Eight:GetChildren()
+		for i,item in bar8 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Eight
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar9 = player.PlayerGui.BackpackGui.Hotbar.Nine:GetChildren()
+		for i,item in bar9 do 
+			if item.Name == "Buddha" then 
+				local keycode = Enum.KeyCode.Nine
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+	end
+	equip()
+	wait(2)
+	local args = {
+		[1] = "drop",
+		[2] = game:GetService("Players").LocalPlayer.Character.Buddha
+	}
+
+	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
+	wait(2)
+end
 
 
 
@@ -1209,10 +1272,8 @@ local function startScript()
 				wait(0.5)
 				teleportE(CFrame.new(20000, 1.836013793945312, 0))
 				keyboardE()
-                                wait(3)
 				teleportE(CFrame.new(20000, 1.836013793945312, 0))
 				keyboardE()
-                                wait(3)
 				teleportE(CFrame.new(20000, 1.836013793945312, 0))
 				keyboardE()
 				wait(3)
