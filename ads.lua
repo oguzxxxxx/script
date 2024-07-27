@@ -1,10 +1,10 @@
------SCRIPT-VERSION-1.06-----
+-----SCRIPT-VERSION-1.07-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
 -----                   -----
 local privatecode = "S4xTUhg7G6"
-local autoexec = 1
+local autoexec = 0
 -----                   -----
 local changingspeed = 3500
 local webhookchest = "https://discord.com/api/webhooks/1266038978801307692/N9fhmZlx_JU2LF1Hu_DKew8V7VMcfP86SiJCzGW2e7qfwYVBWAfQjQ0uyNQT1mnEJrxy"
@@ -573,7 +573,7 @@ local function spotchecker()
 		wait(0.5)
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
 			if onspotcounter == 3 then 
-				
+
 			else 
 				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
 				onspotcounter += 1
@@ -732,7 +732,6 @@ local function teleportE(cframe1)
 			height = 3
 			createbox(height)
 			spotchecker()
-			wait(1)
 			keyboardE()
 			keyboardE()
 			teleportedyet = 1
@@ -1300,7 +1299,8 @@ local function startScript()
 		local fun2 = true
 		replicatedstorage.Events.reserved:InvokeServer(fun1)
 		wait(0.1)
-		player.PlayerGui.chooseType.Frame.RemoteEvent:FireServer(fun2)
+		game:GetService("Players").LocalPlayer.PlayerGui.chooseType.Frame.RemoteEvent:FireServer(unpack(args))
+
 	elseif game.PlaceId == idmain then
 		wait(15*autoexec)
 		cframe = CFrame.new(5866,7,-10227)
