@@ -26,8 +26,6 @@ local humrt = character:WaitForChild("HumanoidRootPart")
 local tweenservice = game:GetService("TweenService")
 local replicatedstorage = game:GetService("ReplicatedStorage")
 local virtualinputservice = game:GetService("VirtualInputManager")
-local falldmg = workspace.PlayerCharacters[name]:WaitForChild("FallDamage")
-falldmg.Enabled = false
 -----                   -----
 local speed = 45
 local tweeningyet = 1
@@ -1398,6 +1396,8 @@ local function startScript()
 		wait(random)
 		game:GetService("TeleportService"):Teleport(1730877806, player)
 	elseif game.PlaceId == idimpel then
+		local falldmg = workspace.PlayerCharacters[name]:WaitForChild("FallDamage")
+		falldmg.Enabled = false
 		speed = changingspeed
 		wait(10 * autoexec)
 		diffucultselecter()
