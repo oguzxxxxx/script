@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.07-----
+-----SCRIPT-VERSION-1.09-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -34,7 +34,7 @@ local teleportedyet = 0
 local dcount = 0
 local height = 0
 local tableofspots = {
-	[1] = CFrame.new(2943.087890625, 2124.49365234375, -13818.97265625), -- 1.1
+	[1] = CFrame.new(2943.087890625, 2070.49365234375, -13818.97265625), -- 1.1
 	[2] = CFrame.new(2954.192626953125, 2070.445556640625, -13954.1328125), --1
 	[3] = CFrame.new(2952.61328125, 2134.442626953125, -15376.771484375), -- 2.1
 	[4] = CFrame.new(2667.587890625, 2070.741455078125, -15512.123046875), -- 2
@@ -54,7 +54,7 @@ local tableofspots = {
 	[18] = CFrame.new(5165.056640625, 2311.310302734375, -20796.853515625), -- 16
 	[19] = CFrame.new(4703.20751953125, 2308.577392578125, -20719.33984375), -- 17
 	[20] = CFrame.new(4986.65234375, 2306.330078125, -20863.931640625), -- 18.1
-	[21] = CFrame.new(4850.943359375, 2370.330078125, -21009.361328125), -- 18
+	[21] = CFrame.new(4850.943359375, 2366.330078125, -21009.361328125), -- 18
 	[22] = CFrame.new(4763.72021484375, 2400.830078125, -20785.625), -- 19
 	[23] = CFrame.new(5245.45263671875, 2400.1298828125, -20798.67578125), -- 20
 	[24] = CFrame.new(5520.41357421875, 2405.830078125, -20803.14453125), -- 21
@@ -87,7 +87,7 @@ local tableofspots = {
 }
 local cframe = CFrame.new(0,0,0)
 local startbegin = 0
-local waitforstart = 22
+local waitforstart = 15
 local waitingspot = 48
 local waitingcount = 0
 local magnitudenumber = 200
@@ -109,6 +109,8 @@ local djcount = 0
 local droppingornot = 0
 local onspot = 0
 local onspotcounter = 0
+local onspotcounter0 = 0
+local waitonceforkelvin = 0
 -----                   -----
 local function createbox(height2)
 	local cframenew = CFrame.new(cframe.X,cframe.Y + (height2),cframe.Z)
@@ -426,11 +428,9 @@ local function killdecide(killthink)
 
 	else 
 		local method = nil
-		if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Kramprus" or npc.Name == "Blugori"  then
+		if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kramprus" or npc.Name == "Blugori"  then
 			method = "Boss"
 			higher = 350
-		elseif npc.Name == "Mini Bunny" then
-			npc:Destroy()
 		elseif npc.Name == "Vera" then
 			method = "Clicks"
 		elseif npc.Name == "Kramprus" then 
@@ -451,12 +451,77 @@ local function killdecide(killthink)
 			}
 
 			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+		elseif npc.Name == "Kelvin, The Nutcracker" then 
+			if waitonceforkelvin == 0 then 
+				waitonceforkelvin = 1
+				wait(10)
+			end
+			method = "Boss"
+			higher = 350
 		else 
 			method = "Npc"
 		end
 		kill(method,npc)
 		killthink()
 	end
+end
+local function spotchecker()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 5.5,startx + 5.5)
+	local numberrangey =NumberRange.new(starty - 15,starty + 15)
+	local numberrangez =NumberRange.new(startz - 5.5,startz + 5.5)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+			 
+		else
+			if waitingcount >= waitingspot then 
+				
+			else
+			waitingcount = 0 
+			workspace.Gravity = 192.6
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
+	end
+		end
+	end
+	checks()
 end
 local function killthink()
 	if waitingcount == 20 then
@@ -523,11 +588,12 @@ local function killthink()
 		else
 			wait(0.125)
 			waitingcount += 1
+			spotchecker()
 			killthink()
 		end
 	end
 end
-local function spotchecker()
+local function spotchecker1()
 	local player = game.Players.LocalPlayer
 	local name = player.Name
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -570,19 +636,19 @@ local function spotchecker()
 		else 
 			checkerz = 1
 		end
-		wait(0.5)
+		wait(2)
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			if onspotcounter == 3 then 
+			if onspotcounter == 2 then 
 
 			else 
 				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
 				onspotcounter += 1
-				spotchecker()
+				spotchecker1()
 			end
 		else
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
 			onspotcounter = 0
-			spotchecker()
+			spotchecker1()
 		end
 	end
 	checks()
@@ -611,7 +677,6 @@ local function teleportkill(cframe1)
 		else 
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+15,cframe.Z)
 			workspace.Gravity = 192.6
-			spotchecker()
 			killthink()
 		end
 	end
@@ -664,6 +729,7 @@ local function teleport(cframe1)
 		else 
 			height = 3
 			createbox(height)
+			spotchecker1()
 			teleportedyet = 1
 		end
 	end
@@ -731,7 +797,7 @@ local function teleportE(cframe1)
 		else 
 			height = 3
 			createbox(height)
-			spotchecker()
+			spotchecker1()
 			keyboardE()
 			keyboardE()
 			teleportedyet = 1
@@ -916,6 +982,7 @@ local function eat()
 		end
 	end
 	equip()
+	wait(3)
 	virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
 	wait(0.1)
 	virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
@@ -1156,7 +1223,7 @@ local function dropping()
 		end
 
 	end
-	wait(1)
+	wait(4)
 	teleportbuddha()
 	local args = {
 		[1] = "equip",
@@ -1164,7 +1231,7 @@ local function dropping()
 	}
 
 	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-	wait(2)
+	wait(4)
 	local function equip()
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -1272,7 +1339,7 @@ local function dropping()
 		end
 	end
 	equip()
-	wait(2)
+	wait(4)
 	local args = {
 		[1] = "drop",
 		[2] = game:GetService("Players").LocalPlayer.Character.Buddha
@@ -1292,14 +1359,19 @@ end
 
 
 
+
 local function startScript()
 	if game.PlaceId == idlobby then 
-		wait(10 * autoexec)
+
 		local fun1 = privatecode
-		local fun2 = true
+		local fun2 = {
+			[1] = true
+		}
 		replicatedstorage.Events.reserved:InvokeServer(fun1)
-		wait(0.1)
-		game:GetService("Players").LocalPlayer.PlayerGui.chooseType.Frame.RemoteEvent:FireServer(unpack(args))
+		print(1)
+		local remote = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("chooseType"):WaitForChild("Frame"):WaitForChild("RemoteEvent")
+		remote:FireServer(true)
+
 
 	elseif game.PlaceId == idmain then
 		wait(15*autoexec)
@@ -1353,7 +1425,7 @@ local function startScript()
 				wait(15)
 				magnitudenumber = 800
 				functionlauncer()
-			elseif tablecount == 10 or tablecount == 18 or tablecount == 19 or tablecount == 1 or tablecount == 3 then
+			elseif tablecount == 10 or tablecount == 18 or tablecount == 19 or tablecount == 3 then
 				teleportE(tableofspots[tablecount])
 				tablecount += 1
 				functionlauncer()
@@ -1486,3 +1558,5 @@ local function startScript()
 	end
 end
 startScript()
+
+
