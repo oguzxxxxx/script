@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.09-----
+-----SCRIPT-VERSION-1.10-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -415,6 +415,21 @@ local function kill(method,npc)
 
 		game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
 		wait(2.5)
+	elseif method == "NpcK" then
+		workspace.Gravity = 0
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local npchum = npc:FindFirstChild("Humanoid")
+		local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
+		local args = {
+			[1] = npchumrt.CFrame
+		}
+		game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+		wait(1.5)
 	end
 end
 local function killdecide(killthink)
@@ -452,11 +467,7 @@ local function killdecide(killthink)
 
 			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 		elseif npc.Name == "Kelvin, The Nutcracker" then 
-			if waitonceforkelvin == 0 then 
-				waitonceforkelvin = 1
-				wait(10)
-			end
-			method = "Boss"
+			method = "NpcK"
 			higher = 350
 		else 
 			method = "Npc"
@@ -508,17 +519,17 @@ local function spotchecker()
 		else 
 			checkerz = 1
 		end
-		
+
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			 
+
 		else
 			if waitingcount >= waitingspot then 
-				
+
 			else
-			waitingcount = 0 
-			workspace.Gravity = 192.6
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
-	end
+				waitingcount = 0 
+				workspace.Gravity = 192.6
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
+			end
 		end
 	end
 	checks()
