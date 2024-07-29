@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.15-----
+-----SCRIPT-VERSION-1.16-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -429,7 +429,7 @@ local function kill(method,npc)
 			[1] = npchumrt.CFrame
 		}
 		game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-		wait(1.5)
+		wait(2)
 	end
 end
 local function killdecide(killthink)
@@ -1439,7 +1439,7 @@ local function startScript()
 				teleportkill(tableofspots[tablecount])
 				tablecount += 1
 				wait(15)
-				magnitudenumber = 800
+				magnitudenumber = 50000
 				functionlauncer()
 			elseif tablecount == 10 or tablecount == 18 or tablecount == 19 or tablecount == 3 then
 				teleportE(tableofspots[tablecount])
@@ -1574,5 +1574,3 @@ local function startScript()
 	end
 end
 startScript()
-
-
