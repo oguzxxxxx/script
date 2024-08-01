@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.16-----
+-----SCRIPT-VERSION-1.20-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -6,7 +6,7 @@ local idlobby = 1730877806
 local privatecode = "HwHb4rQpyZ"
 local autoexec = 1
 -----                   -----
-local changingspeed = 2000
+local changingspeed = 1250
 local webhookchest = "https://discord.com/api/webhooks/1266038978801307692/N9fhmZlx_JU2LF1Hu_DKew8V7VMcfP86SiJCzGW2e7qfwYVBWAfQjQ0uyNQT1mnEJrxy"
 local webhookcomplete = "https://discord.com/api/webhooks/1266038904428167211/T2xGarwIwvisCp1AwDmpie0L-mFBz8-kqy-eRAPOd8LOvcdYITOQW58AlgHUA1ZVM8Dm"
 -----                   ----- 
@@ -112,6 +112,32 @@ local onspotcounter = 0
 local onspotcounter0 = 0
 local waitonceforkelvin = 0
 -----                   -----
+local function geppo()
+	if djcount < 7 then
+		djcount += 1
+	else
+		djcount = 0
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local fun1 = 6.28
+		local fun2 = "dash"
+		game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
+	end
+end
+local function geppo1()
+
+
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	local fun1 = 6.28
+	local fun2 = "dash"
+	game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
+
+end
 local function createbox(height2)
 	local cframenew = CFrame.new(cframe.X,cframe.Y + (height2),cframe.Z)
 	local x = cframenew.X
@@ -236,20 +262,6 @@ local function diffucultselecter()
 		end
 	end
 
-end
-local function geppo()
-	if djcount < 3 then
-		djcount += 1
-	else
-		djcount = 0
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		local fun1 = 6.28
-		local fun2 = "dash"
-		game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
-	end
 end
 local function stack()
 
@@ -647,205 +659,28 @@ local function spotchecker1()
 		else 
 			checkerz = 1
 		end
-		wait(2.5)
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			if onspotcounter == 3 then 
 
-			else 
-				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
-				onspotcounter += 1
-				spotchecker1()
-			end
 		else
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
 			onspotcounter = 0
+			wait(3)
 			spotchecker1()
 		end
 	end
 	checks()
 end
-local function teleportkill(cframe1)
-	cframe = cframe1
-	workspace.Gravity = 0
-	local player = game.Players.LocalPlayer
-	local name = player.Name
-	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-	local humanoid = character:WaitForChild("Humanoid")
-	local humrt = character:WaitForChild("HumanoidRootPart")
-	local magnitude = (humrt.Position - cframe.Position).magnitude
-	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+2000,humrt.CFrame.Z)
-	local newcframe = CFrame.new(cframe.X,cframe.Y+2000,cframe.Z)
-	local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
-	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
-	local function tweencomplete()
-		tweeningyet = 0
-	end
-	local function ontweening()
-		if tweeningyet == 1 then 
-			wait(0.125)
-			stack2()
-			ontweening()
-		else 
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+15,cframe.Z)
-			workspace.Gravity = 192.6
-			killthink()
-		end
-	end
-	tween:Play()
-	tween.Completed:Connect(tweencomplete)
-	ontweening()
-	local function waitforcomplete()
-		print("Wait")
-		if killedyet == 0 then
-			wait(0.125)
-			stack2()
-			waitforcomplete()
-		else 
-			tweeningyet = 1
-			killedyet = 0
-			waitingcount = 0
-			bomucd = 0
-			bomucd1 = 0
-			krampuscheck = 0
-			onspotcounter = 0
-			local args = {
-				[1] = false,
-				[2] = weaponname
-			}
-			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-		end
-	end
-	waitforcomplete()
-end
-local function teleport(cframe1)
-	cframe = cframe1
-	workspace.Gravity = 0
-	local player = game.Players.LocalPlayer
-	local name = player.Name
-	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-	local humanoid = character:WaitForChild("Humanoid")
-	local humrt = character:WaitForChild("HumanoidRootPart")
-	local magnitude = (humrt.Position - cframe.Position).magnitude
-	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+2000,humrt.CFrame.Z)
-	local newcframe = CFrame.new(cframe.X,cframe.Y+2000,cframe.Z)
-	local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
-	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
-	local function tweencomplete()
-		tweeningyet = 0
-	end
-	local function ontweening()
-		if tweeningyet == 1 then 
-			wait(0.125)
-			stack2()
-			ontweening()
-		else 
-			height = 3
-			createbox(height)
-			spotchecker1()
-			teleportedyet = 1
-			onspotcounter = 0
-		end
-	end
-	tween:Play()
-	tween.Completed:Connect(tweencomplete)
-	ontweening()
-	local function waitforcomplete()
-		print("Wait")
-		if teleportedyet == 0 then
-			wait(0.125)
-			stack2()
-			waitforcomplete()
-		else 
-			tweeningyet = 1
-			teleportedyet = 0
-		end
-	end
-	waitforcomplete()
-end
-local function cameramove()
-	local camera = workspace.CurrentCamera
-	local player = game.Players.LocalPlayer
-	local name = player.Name
-	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-	local humanoid = character:WaitForChild("Humanoid")
-	local humrt = character:WaitForChild("HumanoidRootPart")
-
-
-	local pos = Vector3.new(character.Head.Position.X,character.Head.Position.Y + 15,character.Head.Position.Z)
-	local lookAtPos = Vector3.new(character.Head.Position.X,character.Head.Position.Y,character.Head.Position.Z)
-
-	workspace.CurrentCamera.CFrame = CFrame.lookAt(pos, lookAtPos)
-end 
-local function keyboardE()
-	cameramove()
-	wait(0.25)
-	local keycode = Enum.KeyCode.E
-	local virtualinputservice = game:GetService("VirtualInputManager")
-	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-	wait(1.5)
-	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
-end
-local function teleportE(cframe1)
-	cframe = cframe1
-	workspace.Gravity = 0
-	local player = game.Players.LocalPlayer
-	local name = player.Name
-	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-	local humanoid = character:WaitForChild("Humanoid")
-	local humrt = character:WaitForChild("HumanoidRootPart")
-	local magnitude = (humrt.Position - cframe.Position).magnitude
-	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+2000,humrt.CFrame.Z)
-	local newcframe = CFrame.new(cframe.X,cframe.Y+2000,cframe.Z)
-	local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
-	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
-	local function tweencomplete()
-		tweeningyet = 0
-
-	end
-	local function ontweening()
-		if tweeningyet == 1 then 
-			wait(0.125)
-			stack2()
-			ontweening()
-		else 
-			height = 3
-			createbox(height)
-			spotchecker1()
-			keyboardE()
-			keyboardE()
-			teleportedyet = 1
-			onspotcounter = 0
-		end
-	end
-	tween:Play()
-	tween.Completed:Connect(tweencomplete)
-	ontweening()
-	local function waitforcomplete()
-		print("Wait")
-		if teleportedyet == 0 then
-			wait(0.125)
-			stack2()
-			waitforcomplete()
-		else 
-			tweeningyet = 1
-			teleportedyet = 0
-
-		end
-	end
-	waitforcomplete()
-end
-local function startchecker0()
+local function spotcheckerSpecial(tp)
 	local player = game.Players.LocalPlayer
 	local name = player.Name
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 	local humrt = character.HumanoidRootPart
-	local cframe = CFrame.new(5971,7,-10139)
 	local startx = cframe.X
 	local starty = cframe.Y 
 	local startz = cframe.Z
-	local numberrangex =NumberRange.new(startx - 200,startx + 200)
-	local numberrangey =NumberRange.new(starty - 200,starty + 200)
-	local numberrangez =NumberRange.new(startz - 200,startz + 200)
+	local numberrangex =NumberRange.new(startx - 5.5,startx + 5.5)
+	local numberrangey =NumberRange.new(starty - 5.5,starty + 5.5)
+	local numberrangez =NumberRange.new(startz - 5.5,startz + 5.5)
 	local currentx = humrt.CFrame.X
 	local currenty = humrt.CFrame.Y
 	local currentz = humrt.CFrame.Z
@@ -878,15 +713,96 @@ local function startchecker0()
 		else 
 			checkerz = 1
 		end
+		wait(3)
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			speed = changingspeed
-			local cframe = CFrame.new(2950,2075,-13466)
-			teleportE(cframe)
-		else
 
+		else
+			tp(cframe)
 		end
 	end
 	checks()
+end
+local function teleportkill(cframe1)
+	cframe = cframe1
+	geppo1()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	humrt.CFrame = CFrame.new(cframe.X,cframe.Y+15,cframe.Z)
+	workspace.Gravity = 192.6
+	killthink()
+	tweeningyet = 1
+	killedyet = 0
+	waitingcount = 0
+	bomucd = 0
+	bomucd1 = 0
+	krampuscheck = 0
+	onspotcounter = 0
+	local args = {
+		[1] = false,
+		[2] = weaponname
+	}
+	game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+
+end
+local function teleport(cframe1)
+	cframe = cframe1
+	geppo1()
+	workspace.Gravity = 0
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	height = 5
+	createbox(height)
+	teleportedyet = 1
+	onspotcounter = 0
+	tweeningyet = 1
+	teleportedyet = 0
+end
+local function cameramove()
+	local camera = workspace.CurrentCamera
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+
+
+	local pos = Vector3.new(character.Head.Position.X,character.Head.Position.Y + 15,character.Head.Position.Z)
+	local lookAtPos = Vector3.new(character.Head.Position.X,character.Head.Position.Y,character.Head.Position.Z)
+
+	workspace.CurrentCamera.CFrame = CFrame.lookAt(pos, lookAtPos)
+end 
+local function keyboardE()
+	cameramove()
+	wait(0.25)
+	local keycode = Enum.KeyCode.E
+	local virtualinputservice = game:GetService("VirtualInputManager")
+	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+	wait(1.5)
+	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+end
+local function teleportE(cframe1)
+	cframe = cframe1
+	geppo1()
+	workspace.Gravity = 0
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	height = 5
+	createbox(height)
+	keyboardE()
+	keyboardE()
+	teleportedyet = 1
+	onspotcounter = 0
+	tweeningyet = 1
+	teleportedyet = 0
 end
 local function eat()
 	local function equip()
@@ -996,7 +912,7 @@ local function eat()
 		end
 	end
 	equip()
-	wait(3)
+	wait(2.5)
 	virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
 	wait(0.1)
 	virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
@@ -1033,6 +949,7 @@ local function teleportESpecial(cframe1)
 	local newcframe = CFrame.new(cframe.X,cframe.Y+30,cframe.Z)
 	local tinfo = TweenInfo.new(magnitude/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
 	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+	geppo1()
 	local function tweencomplete()
 		tweeningyet = 0
 
@@ -1040,7 +957,7 @@ local function teleportESpecial(cframe1)
 	local function ontweening()
 		if tweeningyet == 1 then 
 			wait(0.125)
-			stack2()
+			geppo()
 			ontweening()
 		else 
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y,cframe.Z)
@@ -1223,29 +1140,31 @@ local function startcheckerBuddha()
 	checks()
 end
 local function dropping()
-	workspace.Gravity = 0
 	local function teleportbuddha()
 		if droppingornot == 0 then 
 			startcheckerBuddha()
 			cframe = CFrame.new(20000, 1.836013793945312, 0)
-			teleport(cframe)
+			teleportESpecial(cframe)
 			workspace.Gravity = 192.6
-			wait(2)
+			wait(2.5)
+			startcheckerBuddha()
 			teleportbuddha()
 		else 
 
 		end
 
 	end
-	wait(4)
+	wait(2.5)
+	workspace.Gravity = 0
 	teleportbuddha()
+	wait(2.5)
 	local args = {
 		[1] = "equip",
 		[2] = "Buddha"
 	}
 
 	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-	wait(4)
+	wait(2.5)
 	local function equip()
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -1353,17 +1272,70 @@ local function dropping()
 		end
 	end
 	equip()
-	wait(4)
+	wait(2.5)
 	local args = {
 		[1] = "drop",
 		[2] = game:GetService("Players").LocalPlayer.Character.Buddha
 	}
 
 	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-	wait(2)
+	wait(2.5)
 end
 
+local function startchecker0()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local cframe = CFrame.new(5971,7,-10139)
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 200,startx + 200)
+	local numberrangey =NumberRange.new(starty - 200,starty + 200)
+	local numberrangez =NumberRange.new(startz - 200,startz + 200)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
 
+
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+			speed = changingspeed
+			local cframe = CFrame.new(2950,2075,-13466)
+			teleportESpecial(cframe)
+		else
+
+		end
+	end
+	checks()
+end
 
 
 
@@ -1390,7 +1362,7 @@ local function startScript()
 	elseif game.PlaceId == idmain then
 		wait(15*autoexec)
 		cframe = CFrame.new(5866,7,-10227)
-		teleport(cframe)
+		teleportESpecial(cframe)
 		print("DOne")
 		local random = math.random(30,90)
 		wait(random)
@@ -1406,6 +1378,7 @@ local function startScript()
 			if tablecount == 0 then
 				dropping()
 				height1 = 45
+				teleportESpecial(CFrame.new(5866,7,-10227))
 				teleportkill(CFrame.new(5866,7,-10227))
 				tablecount += 1
 				speed = changingspeed
@@ -1422,17 +1395,16 @@ local function startScript()
 				local humanoid = character:WaitForChild("Humanoid")
 				local humrt = character:WaitForChild("HumanoidRootPart")
 				humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+1500,humrt.CFrame.Z)
-				wait(0.5)
-				teleportE(CFrame.new(20000, 1.836013793945312, 0))
-				keyboardE()
-				teleportE(CFrame.new(20000, 1.836013793945312, 0))
-				keyboardE()
-				teleportE(CFrame.new(20000, 1.836013793945312, 0))
-				keyboardE()
-				wait(3)
+				cframe = CFrame.new(20000, 1.836013793945312, 0)
+				teleportESpecial(cframe)
+				spotcheckerSpecial(teleportESpecial)
+				wait(1)
 				eat()
-				wait(3)
+				wait(2.5)
 				statsup()
+				wait(2.5)
+				cframe = CFrame.new(2950,2075,-13466)
+				teleportESpecial(cframe)
 				functionlauncer()
 			elseif tablecount == 4 then
 				height1 = 45
@@ -1454,7 +1426,6 @@ local function startScript()
 			elseif tablecount == 48 then 
 				teleportE(tableofspots[tablecount])
 				tablecount += 1
-				wait(8)
 				functionlauncer()
 			elseif tablecount == 49 then 
 				height1 = 45
@@ -1574,3 +1545,5 @@ local function startScript()
 	end
 end
 startScript()
+
+
