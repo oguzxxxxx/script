@@ -783,6 +783,10 @@ local function keyboardE()
 	local keycode = Enum.KeyCode.E
 	local virtualinputservice = game:GetService("VirtualInputManager")
 	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+	wait(0.2)
+	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+	wait(0.3)
+	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
 	wait(1.5)
 	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
 end
@@ -913,11 +917,10 @@ local function eat()
 	end
 	equip()
 	wait(2.5)
-        local virtualinputservice = game:GetService("VirtualInputManager")
-  	wait(3)
-	virtualinputservice:SendMouseButtonEvent(100, 100, 0,true,nil,1)
-	wait(0.1)  
-	virtualinputservice:SendMouseButtonEvent(100, 100, 0,false,nil,1)
+	local virtualinputservice = game:GetService("VirtualInputManager")
+	virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+	wait(0.1)
+	virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
 	wait(13)
 end
 local function learnblackleg()
@@ -1547,4 +1550,5 @@ local function startScript()
 	end
 end
 startScript()
+
 
