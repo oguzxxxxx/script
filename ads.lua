@@ -779,11 +779,11 @@ local function cameramove()
 end 
 local function keyboardE()
 	cameramove()
-	wait(0.25)
+	wait(0.5)
 	local keycode = Enum.KeyCode.E
 	local virtualinputservice = game:GetService("VirtualInputManager")
 	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-	wait(1.5)
+	wait(2)
 	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
 end
 local function teleportE(cframe1)
@@ -799,8 +799,9 @@ local function teleportE(cframe1)
 	createbox(height)
 	wait(2)
 	keyboardE()
+	wait(2)
 	keyboardE()
-	keyboardE()
+	wait(2)
 	keyboardE()
 	teleportedyet = 1
 	onspotcounter = 0
