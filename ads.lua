@@ -916,13 +916,16 @@ local function eat()
 		end
 	end
 	equip()
-	wait(2.5)
-	local virtualinputservice = game:GetService("VirtualInputManager")
-	wait(3)
-	virtualinputservice:SendMouseButtonEvent(100, 100, 0,true,nil,1)
-	wait(0.1)  
-	virtualinputservice:SendMouseButtonEvent(100, 100, 0,false,nil,1)
-	wait(13)
+local virtualinputservice = game:GetService("VirtualInputManager")
+wait(3)
+virtualinputservice:SendMouseMoveEvent(35, 45, nil)
+wait(0.1)  
+virtualinputservice:SendMouseMoveEvent(35, 45, nil)
+wait(3)
+virtualinputservice:SendMouseButtonEvent(35, 45, 0,true,nil,1)
+wait(0.1)  
+virtualinputservice:SendMouseButtonEvent(35, 45, 0,false,nil,1)
+wait(13)
 end
 local function learnblackleg()
 	local args = {
