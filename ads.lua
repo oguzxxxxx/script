@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.20-----
+-----SCRIPT-VERSION-1.225-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -779,11 +779,15 @@ local function cameramove()
 end 
 local function keyboardE()
 	cameramove()
-	wait(0.5)
+	wait(0.25)
 	local keycode = Enum.KeyCode.E
 	local virtualinputservice = game:GetService("VirtualInputManager")
 	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
-	wait(2)
+	wait(0.2)
+	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+	wait(0.3)
+	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+	wait(1.5)
 	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
 end
 local function teleportE(cframe1)
@@ -797,11 +801,7 @@ local function teleportE(cframe1)
 	local humrt = character:WaitForChild("HumanoidRootPart")
 	height = 5
 	createbox(height)
-	wait(2)
 	keyboardE()
-	wait(2)
-	keyboardE()
-	wait(2)
 	keyboardE()
 	teleportedyet = 1
 	onspotcounter = 0
@@ -916,16 +916,17 @@ local function eat()
 		end
 	end
 	equip()
+	wait(2.5)
 local virtualinputservice = game:GetService("VirtualInputManager")
 wait(3)
 virtualinputservice:SendMouseMoveEvent(35, 45, nil)
-wait(0.1)  
+wait(0.1)
 virtualinputservice:SendMouseMoveEvent(35, 45, nil)
 wait(3)
 virtualinputservice:SendMouseButtonEvent(35, 45, 0,true,nil,1)
-wait(0.1)  
+wait(0.1)
 virtualinputservice:SendMouseButtonEvent(35, 45, 0,false,nil,1)
-wait(13)
+	wait(13)
 end
 local function learnblackleg()
 	local args = {
@@ -1150,7 +1151,8 @@ local function startcheckerBuddha()
 end
 local function dropping()
 	local function teleportbuddha()
-		if droppingornot == 0 then 
+		if droppingornot == 0 then
+			workspace.Gravity = 0
 			startcheckerBuddha()
 			cframe = CFrame.new(20000, 1.836013793945312, 0)
 			teleportESpecial(cframe)
@@ -1345,7 +1347,18 @@ local function startchecker0()
 	end
 	checks()
 end
-
+local function checksforbuddha()
+	local buddha = workspace:FindFirstChild("Buddha")
+	if buddha then 
+		local buddhahandler = buddha:FindFirstChild("preHandle")
+		if buddhahandler then 
+			cframe = CFrame.new(buddhahandler.Position.X,buddhahandler.Position.Y,buddhahandler.Position.Z)
+			teleportESpecial(cframe)
+			wait(2.5)
+			checksforbuddha()
+		end
+	end
+end
 
 
 
@@ -1407,7 +1420,9 @@ local function startScript()
 				cframe = CFrame.new(20000, 1.836013793945312, 0)
 				teleportESpecial(cframe)
 				spotcheckerSpecial(teleportESpecial)
-				wait(1)
+				wait(2.5)
+				checksforbuddha()
+				wait(2.5)
 				eat()
 				wait(2.5)
 				statsup()
@@ -1554,3 +1569,5 @@ local function startScript()
 	end
 end
 startScript()
+
+
