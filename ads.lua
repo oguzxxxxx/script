@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.51-----
+-----SCRIPT-VERSION-1.54-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -119,6 +119,8 @@ local djextra = 0
 local inform = nil
 local buddhaDamage = nil
 local blacklegcount = 0
+local requireddamage = 1780
+local requireddamagecount = 0
 -----                   -----
 local function geppo()
 	task.spawn(function()
@@ -297,6 +299,12 @@ end
 local function kill(method,npc)
 	if method == nil then 
 	elseif method == "Npc" then
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
 		if inform == true then
 			local player = game.Players.LocalPlayer
 			local name = player.Name
@@ -370,17 +378,7 @@ local function kill(method,npc)
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-			task.spawn(function()
-				local buddhaDamage = character:GetAttribute("buddhaDamage") 
-				if buddhaDamage < 1500 then 
-
-				else 
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
-			end)
+			
 				wait(1.2)	
 			
 		elseif buddhacount == 12 then
@@ -400,17 +398,7 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			task.spawn(function()
-				local buddhaDamage = character:GetAttribute("buddhaDamage") 
-				if buddhaDamage < 1500 then 
-
-				else 
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
-			end)
+		
 			geppo1()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
 			wait(0.6)
@@ -447,17 +435,6 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			task.spawn(function()
-				local buddhaDamage = character:GetAttribute("buddhaDamage") 
-				if buddhaDamage < 1500 then 
-
-				else 
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
-			end)
 			geppo1()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
 			wait(0.6)
@@ -494,15 +471,7 @@ local function kill(method,npc)
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-			task.spawn(function()
-				local buddhaDamage = character:GetAttribute("buddhaDamage") 
-
-				local args = {
-					[1] = npchumrt.CFrame
-				}
-				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-
-			end)
+		
 			wait(1.2)
 		else 
 			local args = {
@@ -521,17 +490,7 @@ local function kill(method,npc)
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-			task.spawn(function()
-				local buddhaDamage = character:GetAttribute("buddhaDamage") 
-				if buddhaDamage < 1500 then 
-
-				else 
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
-			end)
+			
 				wait(1.2)
 		end
 		end
@@ -717,6 +676,12 @@ local function kill(method,npc)
 			wait(1.2)
 		end
 	elseif method == "NpcBar" then
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
 		if inform == true then
 			local player = game.Players.LocalPlayer
 			local name = player.Name
@@ -1085,8 +1050,13 @@ local function killdecide(killthink)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			inform = character:GetAttribute("InForm")
 			if inform == false then
+				if requireddamagecount == 0 then 
+					requireddamage = 1450
+				elseif requireddamagecount == 1 then 
+					requireddamage = 1780
+				end
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1780 then
+				if buddhadamage > requireddamage then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1156,34 +1126,11 @@ local function killdecide(killthink)
 
 					end)
 					wait(6)
+				else 
+					requireddamagecount = 1
 				end
 			end
-			if inform == true then
-				
-					local buddhadamage = character:GetAttribute("buddhaDamage")
-					
-					if buddhadamage < 1450 then
-					task.spawn(function()	
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local args = {
-						[1] = "Buddha Transformation",
-						[2] = {
-							[1] = false,
-							[2] = humrt.CFrame
-						}
-					}
-
-					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-					buddhaarrived = true
-						wait(4)
-					end)
-					wait(1)
-					end
-			end
+			
 		end
 
 
@@ -1426,6 +1373,12 @@ local function spotcheckerSpecial(tp)
 	checks()
 end
 local function teleportkill(cframe1)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	inform =character:GetAttribute("InForm")
 	if inform == true then
 		task.spawn(function()
 			local player = game.Players.LocalPlayer
@@ -1464,6 +1417,8 @@ local function teleportkill(cframe1)
 	bomucd1 = 0
 	krampuscheck = 0
 	onspotcounter = 0
+	requireddamage = 1780
+	requireddamagecount = 0
 	local args = {
 		[1] = false,
 		[2] = weaponname
@@ -2842,6 +2797,7 @@ local function startScript()
 	elseif game.PlaceId == idimpel then
 		speed = changingspeed
 		task.spawn(function()
+			wait(5)
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -2849,7 +2805,7 @@ local function startScript()
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local players = game.Players:GetChildren()
 			if #players > 1 then 
-				local random = math.rad(0,15)
+				local random = math.rad(0,10)
 				wait(random)
 				local players = game.Players:GetChildren()
 				if #players > 1 then 
@@ -3022,6 +2978,33 @@ local function startScript()
 				height1 = 45
 				teleportkill(tableofspots[tablecount])
 				tablecount += 1
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				inform =character:GetAttribute("InForm")
+				if inform == true then
+					task.spawn(function()
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] =false,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(4)
+					end)
+					wait(0.5)
+				end
 				wait(15)
 				magnitudenumber = 50000
 				functionlauncer()
@@ -3057,9 +3040,9 @@ local function startScript()
 				local function setvariables1(webhook1)
 					local diffuculty = nil
 					if nightmare == 0 then
-						diffuculty = "ÐšÐ¾ÑˆÐ¼Ð°Ñ€"
+						diffuculty = "Кошмар"
 					else
-						diffuculty = "ÐšÐ¾ÑˆÐ¼Ð°Ñ€+"
+						diffuculty = "Кошмар+"
 					end
 					local pointstotal =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 					local time1 = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("LeftContainer"):WaitForChild("Clear Time"):WaitForChild("Display").Text
@@ -3078,16 +3061,16 @@ local function startScript()
 							embeds = {
 								{
 									title = "Impel Down Farm",
-									description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
+									description = "Игрок ".. "||"..name.."||",
 									color = 16711680,
 									fields = {
 										{
-											name = "ÐŸÑ€Ð¾ÑˆÐµÐ» Ð·Ð° "..time1,
-											value = "Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ:"..dif
+											name = "Прошел за "..time1,
+											value = "Сложность:"..dif
 										},
 										{
-											name = "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ð» "..points,
-											value = "Ð¡ÐµÐ¹Ñ‡Ð°Ñ Ð²ÑÐµÐ³Ð¾ "..pointstotal.." Ð¾Ñ‡ÐºÐ¾Ð²"
+											name = "Получил "..points,
+											value = "Сейчас всего "..pointstotal.." очков"
 										}
 									}
 								}
@@ -3126,12 +3109,12 @@ local function startScript()
 								embeds = {
 									{
 										title = "Impel Down Farm",
-										description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
+										description = "Игрок ".. "||"..name.."||",
 										color = 16711680,
 										fields = {
 											{
-												name = "ÐšÑƒÐ¿Ð¸Ð» ÐœÐ¸Ñ„Ð¸Ðº Ð·Ð°:"..(OldPoints - value2),
-												value = "ÐžÑÑ‚Ð°Ð»Ð¾ÑÑŒ:"..value2
+												name = "Купил Мифик за:"..(OldPoints - value2),
+												value = "Осталось:"..value2
 											}
 										}
 									}
@@ -3146,7 +3129,7 @@ local function startScript()
 					if OldPoints == NewPoints then
 
 					else 
-						value = "Ð”Ð°"
+						value = "Да"
 						webhook2(value,NewPoints)
 					end
 				end
@@ -3181,3 +3164,5 @@ local function startScript()
 	end
 end
 startScript()
+
+
