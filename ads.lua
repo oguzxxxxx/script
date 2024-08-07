@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.44-----
+-----SCRIPT-VERSION-1.45-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -617,8 +617,8 @@ local function kill(method,npc)
 		task.spawn(function()
 			local args = {
 				[1] = {
-					["cf"] = npchumrt.CFrame,
-					["cf2"] = npchumrt.CFrame
+					["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
+					["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
 				}
 			}
 
@@ -664,6 +664,17 @@ local function kill(method,npc)
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
+			task.spawn(function()
+				local args = {
+					[1] = {
+						["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
+						["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
+					}
+				}
+
+				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
+			end)
+			wait(0.15)
 			local args = {
 				[1] = true,
 				[2] = "BlackLeg",
@@ -714,6 +725,7 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 			wait(0.15)
+			geppoextra()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			task.spawn(function()
 				local args = {
