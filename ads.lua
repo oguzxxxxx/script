@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.50-----
+-----SCRIPT-VERSION-1.51-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -1084,6 +1084,80 @@ local function killdecide(killthink)
 			local humanoid = character:WaitForChild("Humanoid")
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			inform = character:GetAttribute("InForm")
+			if inform == false then
+				local buddhadamage = character:GetAttribute("buddhaDamage")
+				if buddhadamage > 1780 then
+					task.spawn(function()	
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						workspace.Gravity = 0
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+
+						local args = {
+							[1] = false,
+							[2] = "BlackLeg"
+						}
+
+						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = true,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						print("Not Enough Damage!")
+
+					end)
+					wait(6)
+				end
+			end
 			if inform == true then
 				
 					local buddhadamage = character:GetAttribute("buddhaDamage")
@@ -1352,6 +1426,27 @@ local function spotcheckerSpecial(tp)
 	checks()
 end
 local function teleportkill(cframe1)
+	if inform == true then
+		task.spawn(function()
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local args = {
+				[1] = "Buddha Transformation",
+				[2] = {
+					[1] = false,
+					[2] = humrt.CFrame
+				}
+			}
+
+			game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+			buddhaarrived = true
+			wait(4)
+		end)
+		wait(1)
+	end
 	cframe = cframe1
 	geppo1()
 	local player = game.Players.LocalPlayer
@@ -1402,7 +1497,7 @@ local function teleport(cframe1)
 			buddhaarrived = true
 			wait(4)
 		end)
-		wait(5)
+		wait(1)
 	end
 	cframe = cframe1
 	geppo1()
@@ -2962,9 +3057,9 @@ local function startScript()
 				local function setvariables1(webhook1)
 					local diffuculty = nil
 					if nightmare == 0 then
-						diffuculty = "Кошмар"
+						diffuculty = "ÐšÐ¾ÑˆÐ¼Ð°Ñ€"
 					else
-						diffuculty = "Кошмар+"
+						diffuculty = "ÐšÐ¾ÑˆÐ¼Ð°Ñ€+"
 					end
 					local pointstotal =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 					local time1 = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("BattleReport"):WaitForChild("LeftContainer"):WaitForChild("Clear Time"):WaitForChild("Display").Text
@@ -2983,16 +3078,16 @@ local function startScript()
 							embeds = {
 								{
 									title = "Impel Down Farm",
-									description = "Игрок ".. "||"..name.."||",
+									description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
 									color = 16711680,
 									fields = {
 										{
-											name = "Прошел за "..time1,
-											value = "Сложность:"..dif
+											name = "ÐŸÑ€Ð¾ÑˆÐµÐ» Ð·Ð° "..time1,
+											value = "Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ:"..dif
 										},
 										{
-											name = "Получил "..points,
-											value = "Сейчас всего "..pointstotal.." очков"
+											name = "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ð» "..points,
+											value = "Ð¡ÐµÐ¹Ñ‡Ð°Ñ Ð²ÑÐµÐ³Ð¾ "..pointstotal.." Ð¾Ñ‡ÐºÐ¾Ð²"
 										}
 									}
 								}
@@ -3031,12 +3126,12 @@ local function startScript()
 								embeds = {
 									{
 										title = "Impel Down Farm",
-										description = "Игрок ".. "||"..name.."||",
+										description = "Ð˜Ð³Ñ€Ð¾Ðº ".. "||"..name.."||",
 										color = 16711680,
 										fields = {
 											{
-												name = "Купил Мифик за:"..(OldPoints - value2),
-												value = "Осталось:"..value2
+												name = "ÐšÑƒÐ¿Ð¸Ð» ÐœÐ¸Ñ„Ð¸Ðº Ð·Ð°:"..(OldPoints - value2),
+												value = "ÐžÑÑ‚Ð°Ð»Ð¾ÑÑŒ:"..value2
 											}
 										}
 									}
@@ -3051,7 +3146,7 @@ local function startScript()
 					if OldPoints == NewPoints then
 
 					else 
-						value = "Да"
+						value = "Ð”Ð°"
 						webhook2(value,NewPoints)
 					end
 				end
@@ -3086,5 +3181,3 @@ local function startScript()
 	end
 end
 startScript()
-
-
