@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.42-----
+-----SCRIPT-VERSION-1.44-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -3031,6 +3031,9 @@ local function startScript()
 				end
 				wait(2)
 				teleport(tableofspots[50])
+				local random = 25
+				wait(random)
+				game:GetService("TeleportService"):Teleport(1730877806, player)
 			elseif tablecount == 50 then
 				teleport(tableofspots[tablecount])
 			elseif tablecount == 28 then
