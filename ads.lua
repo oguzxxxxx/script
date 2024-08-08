@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.705-----
+-----SCRIPT-VERSION-1.71-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -118,6 +118,7 @@ local buddhaarrived = false
 local djextra = 0
 local inform = nil
 local buddhaDamage = nil
+local grounded = nil
 local blacklegcount = 0
 local requireddamage = 1780
 local requireddamagecount = 0
@@ -3464,6 +3465,20 @@ local function startScript()
 				local humrt = character:WaitForChild("HumanoidRootPart")
 				character:SetAttribute("InForm",false)
 				character:SetAttribute("buddhaDamage",0)
+				character:SetAttribute("Grounded",false)
+				grounded = character:GetAttribute("Grounded")
+				task.spawn(function()
+					repeat
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local grounded = character:GetAttribute("Grounded")
+					grounded = false
+						wait(1.25)
+					until true == false
+				end)
 				inform = character:GetAttribute("InForm")
 				buddhaDamage = character:GetAttribute("buddhaDamage")
 				functionlauncer()
