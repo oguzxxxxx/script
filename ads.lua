@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.655-----
+-----SCRIPT-VERSION-1.705-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -879,12 +879,15 @@ local function kill(method,npc)
 			end
 			bomudash()
 			if buddhacount == 0 then 
-				local args = {
-					[1] = false,
-					[2] = "BlackLeg"
-				}
+				task.spawn(function()
+					local args = {
+						[1] = true,
+						[2] = "BlackLeg",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				end)
 				workspace.Gravity = 0
 				buddhacount = 15
 				local player = game.Players.LocalPlayer
@@ -1000,12 +1003,15 @@ local function kill(method,npc)
 
 				wait(1.05)
 			elseif buddhacount < 6 then
-				local args = {
-					[1] = false,
-					[2] = "BlackLeg"
-				}
+				task.spawn(function()
+					local args = {
+						[1] = true,
+						[2] = "BlackLeg",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				end)
 				workspace.Gravity = 0
 				buddhacount -= 1
 				local player = game.Players.LocalPlayer
@@ -1026,12 +1032,15 @@ local function kill(method,npc)
 
 				wait(1.05)
 			else 
-				local args = {
-					[1] = false,
-					[2] = "BlackLeg"
-				}
+				task.spawn(function()
+					local args = {
+						[1] = true,
+						[2] = "BlackLeg",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				end)
 				workspace.Gravity = 0
 				buddhacount -= 1
 				local player = game.Players.LocalPlayer
@@ -1163,12 +1172,15 @@ local function kill(method,npc)
 			end
 			bomudash()
 			if buddhacount == 0 then 
-				local args = {
-					[1] = false,
-					[2] = "BlackLeg"
-				}
+				task.spawn(function()
+					local args = {
+						[1] = true,
+						[2] = "BlackLeg",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				end)
 				workspace.Gravity = 0
 				buddhacount = 15
 				local player = game.Players.LocalPlayer
@@ -1291,12 +1303,15 @@ local function kill(method,npc)
 
 				wait(1.05)
 			elseif buddhacount < 6 then
-				local args = {
-					[1] = false,
-					[2] = "BlackLeg"
-				}
+				task.spawn(function()
+					local args = {
+						[1] = true,
+						[2] = "BlackLeg",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				end)
 				workspace.Gravity = 0
 				buddhacount -= 1
 				local player = game.Players.LocalPlayer
@@ -1315,12 +1330,15 @@ local function kill(method,npc)
 				end)
 				wait(1.05)
 			else 
-				local args = {
-					[1] = false,
-					[2] = "BlackLeg"
-				}
+				task.spawn(function()
+					local args = {
+						[1] = true,
+						[2] = "BlackLeg",
+						[3] = true
+					}
 
-				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				end)
 				workspace.Gravity = 0
 				buddhacount -= 1
 				local player = game.Players.LocalPlayer
@@ -2142,11 +2160,11 @@ end
 local function statsup()
 	local fun1 = "Defense"
 	local fun2 = nil
-	local fun3 = 200
+	local fun3 = 250
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "Stamina"
 	local fun2 = nil
-	local fun3 = 100
+	local fun3 = 50
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "DevilFruitMastery"
 	local fun2 = nil
