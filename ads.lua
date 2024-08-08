@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.722-----
+-----SCRIPT-VERSION-1.726-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -142,7 +142,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 18 then
+		if djextra < 30 then
 			djextra += 1
 		else
 			djextra = 0
@@ -419,6 +419,19 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 		else
+			local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			local higher = 0
+			if humanoid.Health < 600 then 
+				higher = 350
+			else 
+				higher = 30
+			end
 			if buddhacount == 0 then 
 				local args = {
 					[1] = false,
@@ -437,7 +450,7 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 
 					local args = {
 						[1] = npchumrt.CFrame
@@ -553,7 +566,7 @@ local function kill(method,npc)
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 					local args = {
 						[1] = npchumrt.CFrame
 					}
@@ -579,7 +592,7 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 
 					local args = {
 						[1] = npchumrt.CFrame
@@ -787,7 +800,9 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			task.spawn(function()
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			end)
 			geppoextra()
 			task.spawn(function()
 				local args = {
@@ -795,7 +810,7 @@ local function kill(method,npc)
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
-			wait(0.0125)
+			task.wait(0.00625)
 			task.spawn(function()
 				local args = {
 					[1] = true,
@@ -1068,7 +1083,9 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			task.spawn(function()
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			end)
 			geppoextra()
 			task.spawn(function()
 				local args = {
@@ -1076,7 +1093,7 @@ local function kill(method,npc)
 				}
 				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
-			wait(0.0125)
+			task.wait(0.00625)
 			task.spawn(function()
 				local args = {
 					[1] = true,
@@ -2137,18 +2154,29 @@ local function learnblackleg()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 end
 local function statsup()
+	if nightmare == 0 then
 	local fun1 = "Defense"
 	local fun2 = nil
-	local fun3 = 250
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
-	local fun1 = "Stamina"
-	local fun2 = nil
-	local fun3 = 50
+	local fun3 = 300
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "DevilFruitMastery"
 	local fun2 = nil
 	local fun3 = valuefruit - 300
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	else
+		local fun1 = "Defense"
+		local fun2 = nil
+		local fun3 = 200
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		local fun1 = "Stamina"
+		local fun2 = nil
+		local fun3 = 150
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		local fun1 = "DevilFruitMastery"
+		local fun2 = nil
+		local fun3 = valuefruit - 350
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	end
 end
 local function teleportESpecial(cframe1)
 	cframe = cframe1
@@ -2230,7 +2258,7 @@ local function keypickup()
 	end
 end
 local function diffucultchecker()
-	local function equip()
+	local function equip() 
 		local player = game.Players.LocalPlayer
 		local name = player.Name
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
