@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.726-----
+-----SCRIPT-VERSION-1.727-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -1410,8 +1410,9 @@ local function killdecide(killthink)
 				end)
 				wait(0.5)
 			end
-
-		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" or npc.Name == "Love Empress" then 
+		elseif npc.Name == "Basilisk" or npc.Name == "Scorpion" then 
+			npc:Destroy()
+		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" or npc.Name == "Love Empress" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1612,9 +1613,11 @@ local function killdecide(killthink)
 				wait(1)
 			end
 		end
-
-
-		kill(method,npc)
+		if method == nil then 
+			
+		else 
+			kill(method,npc)
+		end
 		killthink()
 	end
 end
