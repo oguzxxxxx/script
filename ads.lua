@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.71-----
+-----SCRIPT-VERSION-1.722-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -122,6 +122,7 @@ local grounded = nil
 local blacklegcount = 0
 local requireddamage = 1780
 local requireddamagecount = 0
+local rotationchecker = 0
 -----                   -----
 local function geppo()
 	task.spawn(function()
@@ -141,7 +142,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 15 then
+		if djextra < 18 then
 			djextra += 1
 		else
 			djextra = 0
@@ -789,24 +790,12 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
-				if blacklegcount < 40 then 
-					blacklegcount += 1
-				else 
-					local args = {
-						[1] = {
-							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
-							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
-						}
-					}
-
-					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
-					local args = {
+				local args = {
 						[1] = npchumrt.CFrame
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
 			end)
-			wait(0.025)
+			wait(0.0125)
 			task.spawn(function()
 				local args = {
 					[1] = true,
@@ -816,7 +805,6 @@ local function kill(method,npc)
 
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 			end)
-			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			task.spawn(function()
 				local args = {
 					[1] = {
@@ -833,6 +821,7 @@ local function kill(method,npc)
 
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
+			
 		else
 			local function bomudash()
 				task.spawn(function()
@@ -1082,24 +1071,12 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
-				if blacklegcount < 40 then 
-					blacklegcount += 1
-				else 
-					local args = {
-						[1] = {
-							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
-							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
-						}
-					}
-
-					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
-			wait(0.025)
+			wait(0.0125)
 			task.spawn(function()
 				local args = {
 					[1] = true,
@@ -1109,7 +1086,7 @@ local function kill(method,npc)
 
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 			end)
-			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			
 			task.spawn(function()
 				local args = {
 					[1] = {
@@ -1126,6 +1103,7 @@ local function kill(method,npc)
 
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
+			
 		else
 			local function bomudash()
 				task.spawn(function()
@@ -3463,6 +3441,13 @@ local function startScript()
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 				local humanoid = character:WaitForChild("Humanoid")
 				local humrt = character:WaitForChild("HumanoidRootPart")
+				local attributes = character:GetAttributes()
+				task.spawn(function()
+				for name, value in attributes do
+					print(name)
+					print(value)
+					end
+				end)
 				character:SetAttribute("InForm",false)
 				character:SetAttribute("buddhaDamage",0)
 				character:SetAttribute("Grounded",false)
@@ -3474,9 +3459,8 @@ local function startScript()
 					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 					local humanoid = character:WaitForChild("Humanoid")
 					local humrt = character:WaitForChild("HumanoidRootPart")
-					local grounded = character:GetAttribute("Grounded")
-					grounded = false
-						wait(1.25)
+				    character:SetAttribute("Grounded",false)
+						wait(1)
 					until true == false
 				end)
 				inform = character:GetAttribute("InForm")
@@ -3543,6 +3527,27 @@ local function startScript()
 				height1 = 45
 				teleportkill(tableofspots[tablecount])
 				tablecount += 1
+				if inform == true then
+					task.spawn(function()
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = false,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(4)
+					end)
+					wait(0.5)
+				end
 				wait(20)
 				local OldPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 				local function setvariables1(webhook1)
