@@ -2151,7 +2151,7 @@ local function statsup()
 	local fun1 = "DevilFruitMastery"
 	local fun2 = nil
 	local fun3 = valuefruit - 300
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)з
+	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 end
 local function teleportESpecial(cframe1)
 	cframe = cframe1
