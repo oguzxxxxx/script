@@ -2142,7 +2142,7 @@ end
 local function statsup()
 	local fun1 = "Defense"
 	local fun2 = nil
-	local fun3 = 100
+	local fun3 = 200
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "Stamina"
 	local fun2 = nil
@@ -2150,8 +2150,8 @@ local function statsup()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "DevilFruitMastery"
 	local fun2 = nil
-	local fun3 = valuefruit - 200
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	local fun3 = valuefruit - 300
+	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)з
 end
 local function teleportESpecial(cframe1)
 	cframe = cframe1
