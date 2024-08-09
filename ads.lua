@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.727-----
+-----SCRIPT-VERSION-1.729-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -142,7 +142,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 30 then
+		if djextra < 7 then
 			djextra += 1
 		else
 			djextra = 0
@@ -427,7 +427,7 @@ local function kill(method,npc)
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			local higher = 0
-			if humanoid.Health < 600 then 
+			if humanoid.Health < 850 then 
 				higher = 350
 			else 
 				higher = 30
@@ -1427,7 +1427,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1500 then
+				if buddhadamage > 1600 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1510,7 +1510,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1500 then
+				if buddhadamage > 1600 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
